@@ -1,0 +1,223 @@
+[gd_scene load_steps=18 format=3 uid="uid://c6lo45o3e0k0a"]
+
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_8eiwu"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_nmtvj"]
+[ext_resource type="PackedScene" uid="uid://dclbr6h5m4kw8" path="res://models/prototyping/models/wheelchair.glb" id="3_lvkop"]
+[ext_resource type="Script" path="res://scripts/view.gd" id="4_l72op"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="5_ecypi"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="6_nksgd"]
+[ext_resource type="LabelSettings" uid="uid://daohhjonjrdx8" path="res://themes/label_settings.tres" id="7_8n8f8"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="8_y2dkn"]
+[ext_resource type="Theme" uid="uid://d3avl0mr4r87l" path="res://themes/default_theme.tres" id="9_8s7pk"]
+[ext_resource type="Texture2D" uid="uid://dm50aa4qogm65" path="res://sprites/button_rectangle_depth_gloss.png" id="10_rc2tc"]
+[ext_resource type="PackedScene" uid="uid://dxbbh66hx44y3" path="res://objects/crate_color_2.tscn" id="13_rt3pp"]
+[ext_resource type="PackedScene" uid="uid://dhxok27jxvik8" path="res://objects/flag.tscn" id="18_shs8d"]
+[ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="34_8e2i0"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
+auto_exposure_scale = 0.75
+dof_blur_far_distance = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_ri8jt"]
+font = ExtResource("8_y2dkn")
+font_size = 128
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4d2s"]
+font = ExtResource("8_y2dkn")
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6r7m"]
+font = ExtResource("8_y2dkn")
+font_size = 42
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
+environment = ExtResource("1_8eiwu")
+camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_nmtvj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 72.6796, 7.9134, -63.8679)
+view = NodePath("../View")
+movement_speed = 1000
+
+[node name="Character" parent="Player" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.091742, 0.159299)
+
+[node name="leg-left" parent="Player/Character/character/root" index="0"]
+visible = false
+
+[node name="leg-right" parent="Player/Character/character/root" index="1"]
+visible = false
+
+[node name="arm-left" parent="Player/Character/character/root/torso" index="0"]
+visible = false
+
+[node name="arm-right" parent="Player/Character/character/root/torso" index="1"]
+visible = false
+
+[node name="CollisionShape3D" parent="Player/Character/ButtonPresserArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.122895, 0)
+
+[node name="wheelchair2" parent="Player" instance=ExtResource("3_lvkop")]
+transform = Transform3D(-0.0114143, 0, 1.99997, 0, 2, 0, -1.99997, 0, -0.0114143, 0, 0.00139761, 0)
+
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
+process_mode = 3
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+script = ExtResource("4_l72op")
+target = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+fov = 40.0
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
+process_mode = 3
+script = ExtResource("5_ecypi")
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_nksgd")
+
+[node name="x" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = ExtResource("7_8n8f8")
+
+[node name="Level Complete" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -429.0
+offset_top = 139.0
+offset_right = 429.0
+offset_bottom = 287.0
+grow_horizontal = 2
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_ri8jt")
+
+[node name="CoinsLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = ExtResource("7_8n8f8")
+
+[node name="PlayAgainButton" type="Button" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -258.0
+offset_right = 196.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme = ExtResource("9_8s7pk")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_y2dkn")
+theme_override_font_sizes/font_size = 60
+text = "Play Again?"
+icon = ExtResource("10_rc2tc")
+flat = true
+icon_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 59.0
+offset_right = 48.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_x4d2s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeNameLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 22.0
+offset_right = 49.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "TIME"
+label_settings = SubResource("LabelSettings_v6r7m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="platform" parent="." instance=ExtResource("34_8e2i0")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.79073, -45.7723, 12.4974)
+
+[node name="flag" parent="." instance=ExtResource("18_shs8d")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 29.8383, 4.22765, -45.2943)
+speedrun_mode = true
+
+[node name="crate-color2" parent="." instance=ExtResource("13_rt3pp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25.2012, -17.0787, -16.5834)
+
+[node name="crate-color4" parent="." instance=ExtResource("13_rt3pp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25.2012, -17.0787, -11.2633)
+
+[node name="crate-color5" parent="." instance=ExtResource("13_rt3pp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25.2012, -17.0787, -5.94588)
+
+[node name="crate-color3" parent="." instance=ExtResource("13_rt3pp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25.2012, -17.0787, -22.0616)
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
+[connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
+[connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
+
+[editable path="Player"]
+[editable path="Player/Character"]

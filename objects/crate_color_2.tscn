@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxbbh66hx44y3"]
+
+[ext_resource type="PackedScene" uid="uid://c82u44fpra5hk" path="res://models/prototyping/models/crate-color.glb" id="1_ovvmg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mytjf"]
+size = Vector3(0.496826, 0.500244, 0.504211)
+
+[node name="crate-color2" instance=ExtResource("1_ovvmg")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="crate-color" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crate-color/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000854492, 0.249878, -0.00100708)
+shape = SubResource("BoxShape3D_mytjf")

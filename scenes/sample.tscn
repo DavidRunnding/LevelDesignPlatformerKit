@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cxea8lmw7cy1l" path="res://objects/player_kill_volume.tscn" id="14_6of3h"]
 [ext_resource type="PackedScene" uid="uid://d1r7gm1oopga" path="res://objects/Wood.tscn" id="14_t3bhi"]
 [ext_resource type="PackedScene" uid="uid://bpharv43ulngb" path="res://objects/platform_moving.tscn" id="18_4plyt"]
-[ext_resource type="PackedScene" uid="uid://o03cclkqfdvo" path="res://models/props/door-large-open.glb" id="18_acp7j"]
 [ext_resource type="PackedScene" uid="uid://bs65o07otxbmm" path="res://objects/moving_object_path_3d.tscn" id="19_ndcod"]
 [ext_resource type="PackedScene" uid="uid://g73m8k0j7lyo" path="res://objects/button.tscn" id="19_sw6td"]
 [ext_resource type="PackedScene" uid="uid://cyvet7kb6y80r" path="res://objects/checkpoint.tscn" id="20_b7drk"]
@@ -38,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://c48perftxj5a6" path="res://models/prototyping/models/weapon-sword.glb" id="37_w01wu"]
 [ext_resource type="PackedScene" uid="uid://dclbr6h5m4kw8" path="res://models/prototyping/models/wheelchair.glb" id="38_udr81"]
 [ext_resource type="PackedScene" uid="uid://d16ldw73ada7w" path="res://models/prototyping/models/weapon-shield.glb" id="39_2cjm8"]
+[ext_resource type="PackedScene" uid="uid://ddyao5skytgvu" path="res://models/prototyping/models/floor-thick.glb" id="39_013da"]
 [ext_resource type="PackedScene" uid="uid://ikhnhkkqet3v" path="res://models/prototyping/models/figurine-cube-detailed.glb" id="40_5q3lq"]
 [ext_resource type="PackedScene" uid="uid://b84dr7hy05wia" path="res://objects/pipe_split_2.tscn" id="40_wgcvq"]
 [ext_resource type="PackedScene" uid="uid://ctqg7yb6uh3af" path="res://objects/pipe.tscn" id="41_lcrg5"]
@@ -109,23 +109,12 @@ view = NodePath("../View")
 [node name="Character" parent="Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.091742, 0.159299)
 
-[node name="leg-left" parent="Player/Character/character/root" index="0"]
-visible = false
-
-[node name="leg-right" parent="Player/Character/character/root" index="1"]
-visible = false
-
-[node name="arm-left" parent="Player/Character/character/root/torso" index="0"]
-visible = false
-
-[node name="arm-right" parent="Player/Character/character/root/torso" index="1"]
-visible = false
-
 [node name="CollisionShape3D" parent="Player/Character/ButtonPresserArea3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.122895, 0)
 
 [node name="wheelchair2" parent="Player" instance=ExtResource("38_udr81")]
 transform = Transform3D(-0.0114143, 0, 1.99997, 0, 2, 0, -1.99997, 0, -0.0114143, 0, 0.00139761, 0)
+visible = false
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
 process_mode = 3
@@ -286,6 +275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8668, 8.58094, 28.2327)
 
 [node name="flag" parent="MYWorld" instance=ExtResource("7_dhnka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93464, 0)
+speedrun_mode = true
 
 [node name="NormalLevel" type="Node3D" parent="MYWorld"]
 
@@ -617,116 +607,571 @@ transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 3, -25.1689, 16.7431, 22.7071)
 
 [node name="CaveLevel" type="Node3D" parent="MYWorld"]
 
-[node name="platform-fortified2" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="door2" parent="MYWorld/CaveLevel" instance=ExtResource("13_2py5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150874, -2.0131, -5.77982)
+look_at_door_when_opens = true
+open_door_with_coins = 40
+
+[node name="Platform" type="Node3D" parent="MYWorld/CaveLevel"]
+
+[node name="platform-fortified2" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -9.30203)
 
-[node name="platform-fortified3" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified3" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -9.30203)
 
-[node name="platform-fortified4" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified4" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -9.30203)
 
-[node name="platform-fortified5" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified5" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -8.30203)
 
-[node name="platform-fortified6" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified6" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -8.30203)
 
-[node name="platform-fortified7" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified7" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -8.30203)
 
-[node name="platform-fortified8" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified8" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -10.302)
 
-[node name="platform-fortified9" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified9" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -10.302)
 
-[node name="platform-fortified10" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified10" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -10.302)
 
-[node name="platform-fortified11" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified11" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -6.29781)
 
-[node name="platform-fortified12" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified12" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -6.29781)
 
-[node name="platform-fortified13" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified13" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -6.29781)
 
-[node name="platform-fortified14" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -5.29781)
-
-[node name="platform-fortified15" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -5.29781)
-
-[node name="platform-fortified16" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -5.29781)
-
-[node name="platform-fortified17" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified17" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -7.29781)
 
-[node name="platform-fortified18" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified18" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -7.29781)
 
-[node name="platform-fortified19" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
+[node name="platform-fortified19" parent="MYWorld/CaveLevel/Platform" instance=ExtResource("14_t3bhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -7.29781)
 
-[node name="platform-fortified20" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -3.29781)
+[node name="Floor" type="Node3D" parent="MYWorld/CaveLevel"]
 
-[node name="platform-fortified21" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -3.29781)
+[node name="floor-thick2" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, -5.30454)
 
-[node name="platform-fortified22" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -3.29781)
+[node name="floor-thick3" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, -5.30454)
 
-[node name="platform-fortified23" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -2.29781)
+[node name="floor-thick4" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, -5.30454)
 
-[node name="platform-fortified24" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -2.29781)
+[node name="floor-thick5" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, -5.30454)
 
-[node name="platform-fortified25" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -2.29781)
+[node name="floor-thick6" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, -5.30454)
 
-[node name="platform-fortified26" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -4.29781)
+[node name="floor-thick7" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, -5.30454)
 
-[node name="platform-fortified27" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -4.29781)
+[node name="floor-thick8" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, -5.30454)
 
-[node name="platform-fortified28" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -4.29781)
+[node name="floor-thick9" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, -5.30454)
 
-[node name="platform-fortified29" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -0.297809)
+[node name="floor-thick10" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, -5.30454)
 
-[node name="platform-fortified30" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -0.297809)
+[node name="floor-thick11" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, -4.30454)
 
-[node name="platform-fortified31" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -0.297809)
+[node name="floor-thick12" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, -4.30454)
 
-[node name="platform-fortified32" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, 0.702191)
+[node name="floor-thick13" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, -4.30454)
 
-[node name="platform-fortified33" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, 0.702191)
+[node name="floor-thick14" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, -4.30454)
 
-[node name="platform-fortified34" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, 0.702191)
+[node name="floor-thick15" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, -4.30454)
 
-[node name="platform-fortified35" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845, -2.1895, -1.29781)
+[node name="floor-thick16" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, -4.30454)
 
-[node name="platform-fortified36" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.1895, -1.29781)
+[node name="floor-thick17" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, -4.30454)
 
-[node name="platform-fortified37" parent="MYWorld/CaveLevel" instance=ExtResource("14_t3bhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.155, -2.1895, -1.29781)
+[node name="floor-thick18" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, -4.30454)
 
-[node name="door-large-open2" parent="MYWorld/CaveLevel" instance=ExtResource("18_acp7j")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.158472, -1.98195, -5.58851)
+[node name="floor-thick19" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, -4.30454)
+
+[node name="floor-thick20" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, -3.30454)
+
+[node name="floor-thick21" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, -3.30454)
+
+[node name="floor-thick22" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, -3.30454)
+
+[node name="floor-thick23" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, -3.30454)
+
+[node name="floor-thick24" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, -3.30454)
+
+[node name="floor-thick25" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, -3.30454)
+
+[node name="floor-thick26" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, -3.30454)
+
+[node name="floor-thick27" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, -3.30454)
+
+[node name="floor-thick28" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, -3.30454)
+
+[node name="floor-thick29" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, -2.30454)
+
+[node name="floor-thick30" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, -2.30454)
+
+[node name="floor-thick31" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, -2.30454)
+
+[node name="floor-thick32" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, -2.30454)
+
+[node name="floor-thick33" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, -2.30454)
+
+[node name="floor-thick34" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, -2.30454)
+
+[node name="floor-thick35" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, -2.30454)
+
+[node name="floor-thick36" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, -2.30454)
+
+[node name="floor-thick37" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, -2.30454)
+
+[node name="floor-thick38" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, -1.30454)
+
+[node name="floor-thick39" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, -1.30454)
+
+[node name="floor-thick40" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, -1.30454)
+
+[node name="floor-thick41" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, -1.30454)
+
+[node name="floor-thick42" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, -1.30454)
+
+[node name="floor-thick43" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, -1.30454)
+
+[node name="floor-thick44" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, -1.30454)
+
+[node name="floor-thick45" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, -1.30454)
+
+[node name="floor-thick46" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, -1.30454)
+
+[node name="floor-thick47" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, -0.304542)
+
+[node name="floor-thick48" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, -0.304542)
+
+[node name="floor-thick49" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, -0.304542)
+
+[node name="floor-thick50" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, -0.304542)
+
+[node name="floor-thick51" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, -0.304542)
+
+[node name="floor-thick52" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, -0.304542)
+
+[node name="floor-thick53" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, -0.304542)
+
+[node name="floor-thick54" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, -0.304542)
+
+[node name="floor-thick55" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, -0.304542)
+
+[node name="floor-thick56" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, 0.695458)
+
+[node name="floor-thick57" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, 0.695458)
+
+[node name="floor-thick58" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, 0.695458)
+
+[node name="floor-thick59" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, 0.695458)
+
+[node name="floor-thick60" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, 0.695458)
+
+[node name="floor-thick61" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, 0.695458)
+
+[node name="floor-thick62" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, 0.695458)
+
+[node name="floor-thick63" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, 0.695458)
+
+[node name="floor-thick64" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, 0.695458)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, 1.69546)
+
+[node name="floor-thick74" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0178, -2.00452, 2.69546)
+
+[node name="floor-thick75" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0178, -2.00452, 2.69546)
+
+[node name="floor-thick76" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0178, -2.00452, 2.69546)
+
+[node name="floor-thick77" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0178, -2.00452, 2.69546)
+
+[node name="floor-thick78" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178003, -2.00452, 2.69546)
+
+[node name="floor-thick79" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9822, -2.00452, 2.69546)
+
+[node name="floor-thick80" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9822, -2.00452, 2.69546)
+
+[node name="floor-thick81" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9822, -2.00452, 2.69546)
+
+[node name="floor-thick82" parent="MYWorld/CaveLevel/Floor" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9822, -2.00452, 2.69546)
+
+[node name="Walls" type="Node3D" parent="MYWorld/CaveLevel"]
+
+[node name="Node3D2" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1.13422, -7.28752)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.36258, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 0.2, -0.148598, -0.705944, 1.59997)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D2" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.315028, -0.527119)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D3" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684445, -0.527119)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D3" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D9" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.315028, 1.52838)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D9" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D10" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684445, 1.52838)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D10" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D4" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.78737, -0.500889, -1.30163)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D4" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D5" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.78737, 0.498585, -1.30163)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D5" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D6" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.01097, -0.500889, -1.30163)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D6" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
+
+[node name="Node3D7" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.01097, 0.498585, -1.30163)
+
+[node name="floor-thick65" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.0178, -1.00452, 1.69546)
+
+[node name="floor-thick66" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.0178, -1.00452, 1.69546)
+
+[node name="floor-thick67" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.0178, -1.00452, 1.69546)
+
+[node name="floor-thick68" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.0178, -1.00452, 1.69546)
+
+[node name="floor-thick69" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0178003, -1.00452, 1.69546)
+
+[node name="floor-thick70" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.9822, -1.00452, 1.69546)
+
+[node name="floor-thick71" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.9822, -1.00452, 1.69546)
+
+[node name="floor-thick72" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.9822, -1.00452, 1.69546)
+
+[node name="floor-thick73" parent="MYWorld/CaveLevel/Walls/Node3D7" instance=ExtResource("39_013da")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.9822, -1.00452, 1.69546)
 
 [node name="SkyLevel" type="Node3D" parent="MYWorld"]
 transform = Transform3D(1, 0, -0.000366519, 0, 1, 0, 0.000366519, 0, 1, 2.13537, -0.0171585, -1.17429)
@@ -782,56 +1227,143 @@ transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, -3.
 [node name="rocks11" parent="MYWorld/SkyLevel/Mountain3" instance=ExtResource("33_qj4uo")]
 transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, -4.05583, -10.219, 2.57495)
 
-[node name="pipe-split3" parent="MYWorld/SkyLevel" instance=ExtResource("40_wgcvq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.6978, 12.7978, 27.5346)
+[node name="Pipes" type="Node3D" parent="MYWorld/SkyLevel"]
 
-[node name="pipe3" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 27.1089, 13.2117, 27.5358)
+[node name="pipe-split3" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("40_wgcvq")]
+transform = Transform3D(-4.3714e-08, 0, 1, 0, 1, 0, -1, 0, -4.3714e-08, 25.6978, 12.7978, 27.5346)
 
-[node name="pipe4" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 28.1009, 13.2117, 27.5358)
+[node name="pipe3" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
+transform = Transform3D(-4.3714e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.3714e-08, -4.37114e-08, 27.1089, 13.2117, 27.5358)
 
-[node name="pipe5" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 29.0457, 13.2117, 27.5358)
+[node name="pipe4" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
+transform = Transform3D(-4.3714e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.3714e-08, -4.37114e-08, 28.1009, 13.2117, 27.5358)
 
-[node name="pipe6" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 29.9425, 13.2117, 27.5358)
+[node name="pipe5" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
+transform = Transform3D(-4.3714e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.3714e-08, -4.37114e-08, 29.0457, 13.2117, 27.5358)
 
-[node name="pipe7" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 30.883, 13.2117, 27.5358)
+[node name="pipe6" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
+transform = Transform3D(-4.3714e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.3714e-08, -4.37114e-08, 29.9425, 13.2117, 27.5358)
 
-[node name="pipe8" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 31.7879, 13.2117, 27.5358)
+[node name="pipe7" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
+transform = Transform3D(-4.3714e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.3714e-08, -4.37114e-08, 30.883, 13.2117, 27.5358)
 
-[node name="pipe9" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
+[node name="pipe8" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
+transform = Transform3D(-4.3714e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.3714e-08, -4.37114e-08, 31.7879, 13.2117, 27.5358)
+
+[node name="pipe9" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
 transform = Transform3D(0.870356, -5.67525e-09, -0.492424, -0.492424, -2.15245e-08, -0.870356, -5.67525e-09, 1, -2.15223e-08, 32.2077, 13.2084, 28.4084)
 
-[node name="pipe10" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
+[node name="pipe10" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
 transform = Transform3D(0.870356, -5.67525e-09, -0.492424, -0.492424, -2.15245e-08, -0.870356, -5.67525e-09, 1, -2.15223e-08, 32.2077, 13.2084, 29.3704)
 
-[node name="pipe11" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
+[node name="pipe11" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
 transform = Transform3D(0.870356, -5.67525e-09, -0.492424, -0.492424, -2.15245e-08, -0.870356, -5.67525e-09, 1, -2.15223e-08, 32.2077, 13.2084, 29.3704)
 
-[node name="pipe12" parent="MYWorld/SkyLevel" instance=ExtResource("41_lcrg5")]
+[node name="pipe12" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("41_lcrg5")]
 transform = Transform3D(0.870356, -5.67525e-09, -0.492424, -0.492424, -2.15245e-08, -0.870356, -5.67525e-09, 1, -2.15223e-08, 32.2077, 13.2084, 30.3384)
 
-[node name="pipe-corner2" parent="." instance=ExtResource("42_m4ej1")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 33.9185, 13.0931, 26.2899)
+[node name="pipe-corner2" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("42_m4ej1")]
+transform = Transform3D(-4.37114e-08, 1, 0.000366519, -1, -4.37114e-08, 0, 1.60211e-11, -0.000366519, 1, 31.7932, 13.1103, 27.4526)
 
-[node name="pipe-corner3" parent="." instance=ExtResource("42_m4ej1")]
-transform = Transform3D(-0.88796, -0.459921, -8.74228e-08, -0.459921, 0.88796, 0, 7.76279e-08, 4.02076e-08, -1, 34.4311, 12.7807, 30.5388)
+[node name="pipe-corner3" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("42_m4ej1")]
+transform = Transform3D(-0.88796, -0.459921, -0.000366607, -0.459921, 0.88796, 0, 0.000325532, 0.00016861, -1, 32.3073, 12.7979, 31.7012)
 
-[node name="pipe-half-section3" parent="." instance=ExtResource("43_sylu2")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 33.6615, 13.1908, 26.3812)
+[node name="pipe-half-section3" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("43_sylu2")]
+transform = Transform3D(-4.37114e-08, 1, 0.000366519, -1, -4.37114e-08, 0, 1.60211e-11, -0.000366519, 1, 31.5363, 13.2079, 27.544)
 
-[node name="pipe-half-section4" parent="." instance=ExtResource("43_sylu2")]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 34.3322, 13.1908, 27.2708)
+[node name="pipe-half-section4" parent="MYWorld/SkyLevel/Pipes" instance=ExtResource("43_sylu2")]
+transform = Transform3D(1.6023e-11, -0.000366563, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -0.000366563, 32.2072, 13.2079, 28.4333)
 
-[node name="figurine-cube-detailed2" parent="." instance=ExtResource("40_5q3lq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.253, 13.9399, 35.9931)
+[node name="Coins" type="Node3D" parent="MYWorld/SkyLevel"]
 
-[node name="figurine-cube-detailed3" parent="." instance=ExtResource("44_wq51x")]
-transform = Transform3D(-0.99705, 0, 0.0767538, 0, 1, 0, -0.0767538, 0, -0.99705, 39.7701, 13.9399, 35.5469)
+[node name="coin" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 12.632, 11.6272, 25.3893)
+
+[node name="coin14" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 15.3495, 10.0028, 26.8841)
+
+[node name="coin15" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 20.0024, 11.6732, 23.3779)
+
+[node name="coin2" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 12.6288, 9.87037, 16.7071)
+
+[node name="coin3" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 23.7604, 16.1044, 19.6304)
+
+[node name="coin16" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 24.3679, 16.1044, 21.0873)
+
+[node name="coin17" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 24.8251, 16.1044, 22.6334)
+
+[node name="coin18" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 25.2435, 16.1044, 23.9538)
+
+[node name="coin4" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 23.7633, 12.8464, 27.5269)
+
+[node name="coin5" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 32.1454, 13.1419, 27.5238)
+
+[node name="coin6" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 30.2324, 13.1419, 27.5245)
+
+[node name="coin7" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 32.159, 13.1419, 29.1158)
+
+[node name="coin8" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 33.9218, 16.5128, 37.1505)
+
+[node name="coin9" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 33.9222, 16.5128, 38.3159)
+
+[node name="coin10" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 32.8428, 16.5128, 38.3163)
+
+[node name="coin11" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 32.8424, 16.5128, 37.0994)
+
+[node name="coin12" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 31.9455, 16.5128, 37.0998)
+
+[node name="coin13" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 31.946, 16.5128, 38.1994)
+
+[node name="coin19" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 34.1116, 14.7422, 34.1173)
+
+[node name="coin20" parent="MYWorld/SkyLevel/Coins" instance=ExtResource("20_lfsn4")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 34.7333, 15.577, 34.4049)
+
+[node name="Crates" type="Node3D" parent="MYWorld/SkyLevel"]
+
+[node name="crate2" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 33.3493, 12.9154, 33.8898)
+
+[node name="crate3" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 34.0584, 12.9154, 34.1341)
+
+[node name="crate4" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 34.0584, 13.7541, 34.1341)
+
+[node name="crate5" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 34.783, 12.9307, 34.3837)
+
+[node name="crate6" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 34.783, 13.7168, 34.3837)
+
+[node name="crate7" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 34.783, 14.5389, 34.3837)
+
+[node name="crate8" parent="MYWorld/SkyLevel/Crates" instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.43789, 0, -0.427178, 0, 1.5, 0, 0.427178, 0, 1.43789, 21.2695, 13.8395, 19.1166)
+
+[node name="figurine-cube-detailed2" parent="MYWorld/SkyLevel" instance=ExtResource("40_5q3lq")]
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 38.1313, 13.9571, 37.1534)
+
+[node name="figurine-cube-detailed3" parent="MYWorld/SkyLevel" instance=ExtResource("44_wq51x")]
+transform = Transform3D(-0.997078, 0, 0.0763883, 0, 1, 0, -0.0763883, 0, -0.997078, 37.6481, 13.9571, 36.7074)
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
@@ -839,4 +1371,4 @@ transform = Transform3D(-0.99705, 0, 0.0767538, 0, 1, 0, -0.0767538, 0, -0.99705
 
 [editable path="Player"]
 [editable path="Player/Character"]
-[editable path="figurine-cube-detailed3"]
+[editable path="MYWorld/SkyLevel/figurine-cube-detailed3"]
