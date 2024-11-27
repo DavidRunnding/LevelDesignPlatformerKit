@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c70hw7ir0hoe"]
+
+[ext_resource type="PackedScene" uid="uid://ikhnhkkqet3v" path="res://models/prototyping/models/figurine-cube-detailed.glb" id="1_wanpc"]
+
+[node name="figurine-cube-detailed2" instance=ExtResource("1_wanpc")]
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "attack-kick-left"
