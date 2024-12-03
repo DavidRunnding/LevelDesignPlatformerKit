@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bprrlrsrodjse"]
+[gd_scene load_steps=6 format=3 uid="uid://bprrlrsrodjse"]
 
 [ext_resource type="PackedScene" uid="uid://day542mhkw6j7" path="res://models/props/saw.glb" id="1_7cccq"]
 [ext_resource type="PackedScene" uid="uid://bunxb353h3lje" path="res://objects/damage_dealer_area_3d.tscn" id="2_w12bb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqh07"]
+albedo_color = Color(0.996078, 0, 0, 1)
+metallic = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_juh84"]
 size = Vector3(1, 1, 0.6)
@@ -10,6 +14,9 @@ size = Vector3(1, 1, 0.6)
 size = Vector3(0.75, 0.75, 0.35)
 
 [node name="saw" instance=ExtResource("1_7cccq")]
+
+[node name="saw" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_aqh07")
 
 [node name="DamageDealerArea3D" parent="." index="1" instance=ExtResource("2_w12bb")]
 

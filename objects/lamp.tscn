@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl53crwp6t88q"]
+
+[ext_resource type="PackedScene" uid="uid://ctqg7yb6uh3af" path="res://objects/pipe.tscn" id="1_oq5nq"]
+[ext_resource type="PackedScene" uid="uid://d16ldw73ada7w" path="res://models/prototyping/models/weapon-shield.glb" id="2_4vski"]
+[ext_resource type="PackedScene" uid="uid://rwa218730lgk" path="res://models/prototyping/models/indicator-round-c.glb" id="3_t6xja"]
+[ext_resource type="PackedScene" uid="uid://bub5qxu2em1lu" path="res://models/prototyping/models/button-floor-round-small.glb" id="4_yh433"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1t4gr"]
+albedo_color = Color(0.414545, 0.407105, 0.399666, 1)
+metallic = 0.57
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocoog"]
+albedo_color = Color(0.0978599, 0.526319, 0.854265, 1)
+metallic = 0.98
+
+[node name="Lamp" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0548, 16.2281, 38.2182)
+
+[node name="pipe2" parent="." instance=ExtResource("1_oq5nq")]
+transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="pipe" parent="pipe2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1t4gr")
+
+[node name="weapon-shield2" parent="." instance=ExtResource("2_4vski")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.00993347, 1.95984, 0.00608444)
+
+[node name="weapon-shield" parent="weapon-shield2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ocoog")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00993347, 2.40378, 0.00608444)
+light_color = Color(1, 1, 0.513726, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 13.444
+light_size = 0.465
+light_specular = 5.818
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_opacity = 0.47
+
+[node name="indicator-round-c2" parent="." instance=ExtResource("3_t6xja")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00069809, 1.84721, 0.00227737)
+
+[node name="button-floor-round-small2" parent="." instance=ExtResource("4_yh433")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.00367355, 0, -0.00473022)
+
+[editable path="pipe2"]
+[editable path="weapon-shield2"]
