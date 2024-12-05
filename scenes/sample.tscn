@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://e6jwbml72r4o"]
+[gd_scene load_steps=125 format=3 uid="uid://e6jwbml72r4o"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_apxki"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_hgw2l"]
@@ -59,15 +59,21 @@
 [ext_resource type="PackedScene" uid="uid://dl53crwp6t88q" path="res://objects/lamp.tscn" id="55_wkcds"]
 [ext_resource type="PackedScene" uid="uid://cmkdwrjcbf2o1" path="res://models/props/arrow.glb" id="56_vq5sy"]
 [ext_resource type="PackedScene" uid="uid://b173tpb21n3hy" path="res://models/prototyping/models/number-4.glb" id="57_j38bg"]
+[ext_resource type="PackedScene" uid="uid://bgvgs5ia2ylax" path="res://models/prototyping/models/stairs-small-narrow.glb" id="58_0nagt"]
 [ext_resource type="PackedScene" uid="uid://cb58fk5vuvv1m" path="res://models/prototyping/models/number-0.glb" id="58_adlfe"]
 [ext_resource type="PackedScene" uid="uid://ch17pkxacjwt7" path="res://objects/shape_hollow_cylinder_detailed_2.tscn" id="58_afbl2"]
+[ext_resource type="PackedScene" uid="uid://gnw7fqq0v230" path="res://models/prototyping/models/indicator-round-f.glb" id="58_igchj"]
+[ext_resource type="PackedScene" uid="uid://ca0rksa1ax807" path="res://objects/shape_cylinder_detailed_2.tscn" id="58_wbcpk"]
 [ext_resource type="PackedScene" uid="uid://df18mlkvitytu" path="res://models/prototyping/models/number-2.glb" id="59_5tl3s"]
 [ext_resource type="PackedScene" uid="uid://6s1q1qgjmswl" path="res://models/prototyping/models/ladder-top.glb" id="59_gt4ra"]
+[ext_resource type="PackedScene" uid="uid://uoal1ww2cosb" path="res://models/prototyping/models/target-a-round.glb" id="59_v8n48"]
 [ext_resource type="PackedScene" uid="uid://g5lvjx2k0ljb" path="res://objects/ladder_2.tscn" id="60_0dxxb"]
 [ext_resource type="PackedScene" uid="uid://ugndbo13ctw6" path="res://models/prototyping/models/shape-hollow-cylinder-half-detailed.glb" id="61_agxgn"]
+[ext_resource type="PackedScene" uid="uid://bh8ytw1cmnjqd" path="res://models/prototyping/models/shape-slope.glb" id="61_pmwha"]
 [ext_resource type="PackedScene" uid="uid://c506v386kacfh" path="res://models/prototyping/models/shape-cylinder-detailed.glb" id="62_ghfhp"]
 [ext_resource type="PackedScene" uid="uid://0y3y2t0t05ts" path="res://models/props/block-grass-low.glb" id="67_hj72t"]
 [ext_resource type="PackedScene" uid="uid://c0lopeux2v51l" path="res://models/props/coin-gold.glb" id="68_nnfsl"]
+[ext_resource type="PackedScene" uid="uid://cabon4dlf7od5" path="res://objects/column_2.tscn" id="70_5mcox"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
 auto_exposure_scale = 0.75
@@ -142,6 +148,9 @@ albedo_color = Color(1, 0.301961, 0.223529, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_066yp"]
 albedo_color = Color(1, 0.301961, 0.223529, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xxos"]
+albedo_color = Color(0.244293, 0.104504, 0.0796935, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_lbf3b"]
 _data = {
@@ -224,6 +233,19 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_forkn"]
+albedo_color = Color(0.000693898, 0.000693898, 0.000693898, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_wookv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.77234, 5.77971, -59.8967, 0, 0, 0, 0, 0, 0, 3.04235, 5.95152, -6.64477),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1u3y5"]
+data = PackedVector3Array(0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 0, 0.5)
+
 [sub_resource type="Curve3D" id="Curve3D_syy2f"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 41.1937, 16.1981, 36.0376, 0, 0, 0, 0, 0, 0, 8.50626, 7.85105, 33.2766),
@@ -282,14 +304,6 @@ _data = {
 "RESET": SubResource("Animation_srhr3")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fk4w"]
-albedo_color = Color(1, 1, 0, 1)
-metallic = 0.55
-roughness = 0.5
-emission_enabled = true
-emission = Color(0.926247, 0.888191, 0.302355, 1)
-emission_energy_multiplier = 12.07
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ucxw"]
 albedo_color = Color(1, 0.0588235, 0.0588235, 1)
 
@@ -299,9 +313,6 @@ data = PackedVector3Array(-0.1414, 0.1, 0, -0.1, 0.1, 0.1, -0.1414, 0.05, 0.1414
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jskdn"]
 albedo_color = Color(0.53, 0.53, 0.53, 1)
 metallic = 0.4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xxos"]
-albedo_color = Color(0.244293, 0.104504, 0.0796935, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -314,7 +325,7 @@ camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 transform = Transform3D(2.195, 0, 0, 0, 1, 0, 0, 0, 2.205, 0, 0, 41.8492)
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_hgw2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307691, 6.08632, 3.62752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307691, 6.08632, 3.63898)
 view = NodePath("../View")
 
 [node name="Character" parent="Player" index="1"]
@@ -504,7 +515,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8668, 8.58094, 28.2327)
 
 [node name="flag" parent="MYWorld" instance=ExtResource("7_dhnka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93464, 0)
-speedrun_mode = true
 
 [node name="NormalLevel" type="Node3D" parent="MYWorld"]
 
@@ -692,6 +702,21 @@ transform = Transform3D(2.85127, 1.9988, -0.714624, -4.3176e-08, 7.66044, 1.9283
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0129208, 5.98346, 1.73177)
 look_at_door_when_opens = true
 open_door_with_coins = 20
+
+[node name="block-grass-low2" parent="MYWorld/NormalLevel/Doors" instance=ExtResource("67_hj72t")]
+transform = Transform3D(0.6, 0, 0, 0, -8.74228e-09, -0.6, 0, 0.2, -2.62268e-08, -0.00094825, 7.89081, 1.95115)
+
+[node name="block-grass-low" parent="MYWorld/NormalLevel/Doors/block-grass-low2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2xxos")
+
+[node name="coin-gold2" parent="MYWorld/NormalLevel/Doors/block-grass-low2" instance=ExtResource("68_nnfsl")]
+transform = Transform3D(-1.66667, -8.47033e-21, -3.64262e-08, 4.37116e-07, -2.18557e-07, -1.25, -6.36899e-15, -1.66667, 1.82131e-08, -0.00111649, 0.849929, -0.297502)
+
+[node name="number-22" parent="MYWorld/NormalLevel/Doors/block-grass-low2" instance=ExtResource("59_5tl3s")]
+transform = Transform3D(6.10792e-05, 0, 1.33333, -0.5, -1.74845e-07, 0.0014659, 7.28523e-09, -1.33333, -2.13588e-11, -0.246046, 0.829, 0.358767)
+
+[node name="number-03" parent="MYWorld/NormalLevel/Doors/block-grass-low2" instance=ExtResource("58_adlfe")]
+transform = Transform3D(6.10792e-05, 0, 1.33333, -0.5, -1.74845e-07, 0.0014659, 7.28523e-09, -1.33333, -2.13588e-11, 0.24562, 0.82955, 0.358767)
 
 [node name="Buttons" type="Node3D" parent="MYWorld/NormalLevel"]
 
@@ -1011,10 +1036,10 @@ transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 
 transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0.0116336, 6.0808, -5.77232)
 
 [node name="fence-straight4" parent="MYWorld/NormalLevel/House" instance=ExtResource("28_l3ihb")]
-transform = Transform3D(0.423889, -1.43886, -6.28946e-08, 0, -6.55671e-08, 1.5, -1.43886, -0.423889, -1.85288e-08, -10.2722, 16.6559, 4.0285)
+transform = Transform3D(0.423889, -1.43886, -6.28946e-08, 0.0334975, 0.00986832, 1.49959, -1.43847, -0.423774, 0.0349209, -10.2722, 16.4749, 4.02141)
 
 [node name="fence-straight5" parent="MYWorld/NormalLevel/House" instance=ExtResource("28_l3ihb")]
-transform = Transform3D(-0.423889, 0, -1.43886, 0, 1.5, 0, 1.43886, 0, -0.423889, -9.76757, 17.2668, 4.17716)
+transform = Transform3D(-0.423889, 0, -1.43886, -0.0334975, 1.49959, 0.00986839, 1.43847, 0.0349209, -0.423774, -9.76757, 17.0822, 4.18425)
 
 [node name="flowers-tall2" parent="MYWorld/NormalLevel/House" instance=ExtResource("39_okiub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56717, 6.00225, -7.14489)
@@ -1479,12 +1504,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86391, 6.01352, 2.45197)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46199, 6.01352, 2.61352)
 
 [node name="CaveLevel" type="Node3D" parent="MYWorld"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825836, 0)
-
-[node name="door2" parent="MYWorld/CaveLevel" instance=ExtResource("13_2py5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150874, -4.29274, -5.77982)
-look_at_door_when_opens = true
-open_door_with_coins = 40
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 10.1079, -68.7322)
 
 [node name="Platform" type="Node3D" parent="MYWorld/CaveLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.31024, 0)
@@ -1544,7 +1564,13 @@ transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 9, 0, -2, -1.28786)
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.3, -0.0239887, 1.08519, 1.7453)
 
 [node name="floor-thick83" parent="MYWorld/CaveLevel/Roof" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 9, 0, -2, -1.28786)
+transform = Transform3D(9, 0, -2.84217e-13, 0, 1, 0, 0, 0, 9, 9.31323e-10, 0.391652, -1.30838)
+
+[node name="floor-thick84" parent="MYWorld/CaveLevel/Roof" instance=ExtResource("39_8u8d1")]
+transform = Transform3D(8.837, 0, -3.12982e-13, 0, 1, 0, 6.14626e-13, 0, 4.5, -1.27591e-07, -3.71471, 0.997128)
+
+[node name="floor-thick85" parent="MYWorld/CaveLevel/Roof" instance=ExtResource("39_8u8d1")]
+transform = Transform3D(8.837, 0, -3.12639e-13, 0, 1, 0, 9.09495e-13, 0, 3, -1.66707e-07, -1.8447, 1.68298)
 
 [node name="Walls" type="Node3D" parent="MYWorld/CaveLevel"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -0.620123, 0)
@@ -1553,31 +1579,533 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -0.620123, 0)
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1.13422, -7.28752)
 
 [node name="floor-thick2" parent="MYWorld/CaveLevel/Walls/DoorWall" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(8.25, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.67856, -1.06504, 1.49726)
+transform = Transform3D(8.25, 0, 0, 0, -4.37114e-08, -1.5, 0, 1, -6.55671e-08, 4.67856, -0.789319, 1.49726)
 
 [node name="floor-thick3" parent="MYWorld/CaveLevel/Walls/DoorWall" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(8, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.94579, -1.04566, 1.48512)
+transform = Transform3D(8, 0, 0, 0, -4.37114e-08, -1.5, 0, 1, -6.55671e-08, -4.94579, -0.769939, 1.48512)
 
 [node name="floor-thick4" parent="MYWorld/CaveLevel/Walls/DoorWall" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(4.45093e-15, 4.37114e-08, 1.61796, 0.625, -1.62921e-07, 0, 1.01825e-07, 1, -7.07231e-08, -0.204888, -0.791396, 1.49402)
+transform = Transform3D(7.4776e-15, 4.37114e-08, 2.585, 1.05, -1.62921e-07, -8.98727e-20, 1.71067e-07, 1, -1.12994e-07, -0.204888, -0.568107, 1.48617)
 
 [node name="BackWall" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.315028, 4.35417)
 
 [node name="floor-thick2" parent="MYWorld/CaveLevel/Walls/BackWall" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(9, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, -0.601678, 1.49285)
+transform = Transform3D(9, 0, 0, 0, -4.37114e-08, -3, 0, 1, -1.31134e-07, 0, -0.0502353, 1.49285)
 
 [node name="LeftWall" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
 transform = Transform3D(-5.72619e-08, 0, 1, 0, 1, 0, -1.31, 0, -4.37114e-08, 7.24412, -0.500889, 0.193656)
 
 [node name="floor-thick2" parent="MYWorld/CaveLevel/Walls/LeftWall" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(3.82137e-15, 4.37114e-08, 9, 2, -4.37114e-08, 0, 8.74228e-08, 1, -3.93403e-07, 0.0264316, -0.487004, 1.50874)
+transform = Transform3D(5.73206e-15, 4.37114e-08, 9, 3, -4.37114e-08, 7.90526e-21, 1.31134e-07, 1, -3.93402e-07, 0.0264282, 0.0644388, 1.44866)
 
 [node name="RightWall" type="Node3D" parent="MYWorld/CaveLevel/Walls"]
 transform = Transform3D(-5.68248e-08, 0, 1, 0, 1, 0, -1.3, 0, -4.37114e-08, -10.5221, -0.500889, 0.170344)
 
 [node name="floor-thick2" parent="MYWorld/CaveLevel/Walls/RightWall" instance=ExtResource("39_8u8d1")]
-transform = Transform3D(3.82137e-15, 4.37114e-08, 9, 2, -4.37114e-08, 0, 8.74228e-08, 1, -3.93403e-07, 0.0352612, -0.455494, 1.51051)
+transform = Transform3D(5.73205e-15, 4.37114e-08, 9, 3, -4.37114e-08, 1.01638e-20, 1.31134e-07, 1, -3.93403e-07, 0.0352592, 0.0959487, 1.51051)
+
+[node name="Guard" parent="MYWorld/CaveLevel" instance=ExtResource("34_7af2o")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.990926, -4.32896, -6.59503)
+
+[node name="indicator-round-f2" parent="MYWorld/CaveLevel/Guard/figurine-large/root/torso" index="3" instance=ExtResource("58_igchj")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.00607246, 0.648597, 0.000267029)
+
+[node name="target-a-round2" parent="MYWorld/CaveLevel/Guard/figurine-large/root/torso" index="4" instance=ExtResource("59_v8n48")]
+transform = Transform3D(-2.55444e-08, 0.584387, 0.546344, -0.8, -3.49691e-08, 2.69636e-15, 2.38814e-08, -0.546344, 0.584387, -0.153761, 0.724253, 0.135216)
+
+[node name="target-a-round" parent="MYWorld/CaveLevel/Guard/figurine-large/root/torso/target-a-round2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_forkn")
+
+[node name="weapon-sword2" parent="MYWorld/CaveLevel/Guard" instance=ExtResource("37_w01wu")]
+transform = Transform3D(0.0212745, 0.999661, -0.0150199, -0.147723, -0.0117153, -0.98896, -0.9888, 0.0232584, 0.147423, -0.352775, 0.239363, 0.244427)
+
+[node name="weapon-shield2" parent="MYWorld/CaveLevel/Guard" instance=ExtResource("39_2cjm8")]
+transform = Transform3D(-0.0565533, 0.9984, 0, -0.9984, -0.0565533, 0, 0, 0, 1, 0.34378, 0.211853, 0.000377655)
+
+[node name="Guard2" parent="MYWorld/CaveLevel" instance=ExtResource("34_7af2o")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.14956, -4.32896, -6.59503)
+
+[node name="indicator-round-f2" parent="MYWorld/CaveLevel/Guard2/figurine-large/root/torso" index="3" instance=ExtResource("58_igchj")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.00607246, 0.648597, 0.000267029)
+
+[node name="target-a-round2" parent="MYWorld/CaveLevel/Guard2/figurine-large/root/torso" index="4" instance=ExtResource("59_v8n48")]
+transform = Transform3D(-2.55444e-08, 0.584387, 0.546344, -0.8, -3.49691e-08, 2.69636e-15, 2.38814e-08, -0.546344, 0.584387, -0.153761, 0.724253, 0.135216)
+
+[node name="target-a-round" parent="MYWorld/CaveLevel/Guard2/figurine-large/root/torso/target-a-round2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_forkn")
+
+[node name="weapon-sword2" parent="MYWorld/CaveLevel/Guard2" instance=ExtResource("37_w01wu")]
+transform = Transform3D(0.0212745, 0.999661, -0.0150199, -0.147723, -0.0117153, -0.98896, -0.9888, 0.0232584, 0.147423, -0.352775, 0.239363, 0.244427)
+
+[node name="weapon-shield2" parent="MYWorld/CaveLevel/Guard2" instance=ExtResource("39_2cjm8")]
+transform = Transform3D(-0.0565533, 0.9984, 0, -0.9984, -0.0565533, 0, 0, 0, 1, 0.34378, 0.211853, 0.000377655)
+
+[node name="Prison" type="Node3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0442368, 0, 0)
+
+[node name="shape-cylinder-detailed3" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed6" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed7" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed8" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed9" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 4, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed10" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed11" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed12" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.1)
+
+[node name="shape-cylinder-detailed13" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.6)
+
+[node name="shape-cylinder-detailed14" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.1)
+
+[node name="shape-cylinder-detailed15" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.6)
+
+[node name="shape-cylinder-detailed16" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.1)
+
+[node name="shape-cylinder-detailed17" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.6)
+
+[node name="shape-cylinder-detailed4" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed5" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8.5, -4.294, 2.6)
+
+[node name="door" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("13_2py5d")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5, -4.31, 2.573)
+
+[node name="button" parent="MYWorld/CaveLevel/Prison" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
+transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 6.2644, -4.30907, 1.70787)
+target = NodePath("../door")
+
+[node name="column3" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 2.99392, -4.3018, 5.8397)
+
+[node name="column8" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 8.72295, -4.3018, 2.61255)
+
+[node name="column6" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -2.70081, 2.51772)
+
+[node name="column4" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -4.38326, 2.51772)
+
+[node name="column5" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -2.70081, 2.60525)
+
+[node name="column7" parent="MYWorld/CaveLevel/Prison" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -4.38086, 2.60525)
+
+[node name="Prison2" type="Node3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8848, 0, 0)
+
+[node name="shape-cylinder-detailed3" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed6" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed7" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed8" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed9" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 4, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed10" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed11" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed12" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.1)
+
+[node name="shape-cylinder-detailed13" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.6)
+
+[node name="shape-cylinder-detailed14" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.1)
+
+[node name="shape-cylinder-detailed15" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.6)
+
+[node name="shape-cylinder-detailed16" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.1)
+
+[node name="shape-cylinder-detailed17" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.6)
+
+[node name="shape-cylinder-detailed4" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed5" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8.5, -4.294, 2.6)
+
+[node name="door" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("13_2py5d")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5, -4.31, 2.573)
+
+[node name="button" parent="MYWorld/CaveLevel/Prison2" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
+transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 6.2644, -4.30907, 1.70787)
+target = NodePath("../door")
+
+[node name="column3" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 2.99392, -4.3018, 5.8397)
+
+[node name="column8" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 8.72295, -4.3018, 2.61255)
+
+[node name="column6" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -2.70081, 2.51772)
+
+[node name="column4" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -4.38326, 2.51772)
+
+[node name="column5" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -2.70081, 2.60525)
+
+[node name="column7" parent="MYWorld/CaveLevel/Prison2" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -4.38086, 2.60525)
+
+[node name="Prison3" type="Node3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7232, 0, 0)
+
+[node name="shape-cylinder-detailed3" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed6" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed7" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed8" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed9" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 4, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed10" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed11" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed12" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.1)
+
+[node name="shape-cylinder-detailed13" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.6)
+
+[node name="shape-cylinder-detailed14" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.1)
+
+[node name="shape-cylinder-detailed15" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.6)
+
+[node name="shape-cylinder-detailed16" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.1)
+
+[node name="shape-cylinder-detailed17" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.6)
+
+[node name="shape-cylinder-detailed4" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed5" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8.5, -4.294, 2.6)
+
+[node name="door" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("13_2py5d")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5, -4.31, 2.573)
+
+[node name="button" parent="MYWorld/CaveLevel/Prison3" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
+transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 6.2644, -4.30907, 1.70787)
+target = NodePath("../door")
+
+[node name="column3" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 2.99392, -4.3018, 5.8397)
+
+[node name="column8" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 8.72295, -4.3018, 2.61255)
+
+[node name="column6" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -2.70081, 2.51772)
+
+[node name="column4" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -4.38326, 2.51772)
+
+[node name="column5" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -2.70081, 2.60525)
+
+[node name="column7" parent="MYWorld/CaveLevel/Prison3" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -4.38086, 2.60525)
+
+[node name="Prison4" type="Node3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7232, 1.86131, 0)
+
+[node name="shape-cylinder-detailed3" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed6" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed7" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed8" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed9" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 4, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed10" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed11" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed12" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.1)
+
+[node name="shape-cylinder-detailed13" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.6)
+
+[node name="shape-cylinder-detailed14" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.1)
+
+[node name="shape-cylinder-detailed15" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.6)
+
+[node name="shape-cylinder-detailed16" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.1)
+
+[node name="shape-cylinder-detailed17" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.6)
+
+[node name="shape-cylinder-detailed4" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed5" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8.5, -4.294, 2.6)
+
+[node name="door" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("13_2py5d")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5, -4.31, 2.573)
+
+[node name="button" parent="MYWorld/CaveLevel/Prison4" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
+transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 6.2644, -4.30907, 1.70787)
+target = NodePath("../door")
+
+[node name="column3" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 2.99392, -4.3018, 5.8397)
+
+[node name="column8" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 8.72295, -4.3018, 2.61255)
+
+[node name="column6" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -2.70081, 2.51772)
+
+[node name="column4" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -4.38326, 2.51772)
+
+[node name="column5" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -2.70081, 2.60525)
+
+[node name="column7" parent="MYWorld/CaveLevel/Prison4" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -4.38086, 2.60525)
+
+[node name="Prison5" type="Node3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87725, 1.86131, 0)
+
+[node name="shape-cylinder-detailed3" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed6" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed7" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed8" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed9" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 4, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed10" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed11" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed12" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.1)
+
+[node name="shape-cylinder-detailed13" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.6)
+
+[node name="shape-cylinder-detailed14" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.1)
+
+[node name="shape-cylinder-detailed15" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.6)
+
+[node name="shape-cylinder-detailed16" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.1)
+
+[node name="shape-cylinder-detailed17" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.6)
+
+[node name="shape-cylinder-detailed4" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed5" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8.5, -4.294, 2.6)
+
+[node name="door" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("13_2py5d")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5, -4.31, 2.573)
+
+[node name="button" parent="MYWorld/CaveLevel/Prison5" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
+transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 6.2644, -4.30907, 1.70787)
+target = NodePath("../door")
+
+[node name="column3" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 2.99392, -4.3018, 5.8397)
+
+[node name="column8" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 8.72295, -4.3018, 2.61255)
+
+[node name="column6" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -2.70081, 2.51772)
+
+[node name="column4" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -4.38326, 2.51772)
+
+[node name="column5" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -2.70081, 2.60525)
+
+[node name="column7" parent="MYWorld/CaveLevel/Prison5" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -4.38086, 2.60525)
+
+[node name="Prison6" type="Node3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0474572, 1.86131, 0)
+
+[node name="shape-cylinder-detailed3" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed6" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 7, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed7" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed8" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 6, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed9" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 4, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed10" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3.5, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed11" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed12" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.1)
+
+[node name="shape-cylinder-detailed13" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 3.6)
+
+[node name="shape-cylinder-detailed14" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.1)
+
+[node name="shape-cylinder-detailed15" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 4.6)
+
+[node name="shape-cylinder-detailed16" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.1)
+
+[node name="shape-cylinder-detailed17" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 3, -4.294, 5.6)
+
+[node name="shape-cylinder-detailed4" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8, -4.294, 2.6)
+
+[node name="shape-cylinder-detailed5" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("58_wbcpk")]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 1.5, 0, -1.50996e-08, 0, -0.1, 8.5, -4.294, 2.6)
+
+[node name="door" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("13_2py5d")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5, -4.31, 2.573)
+
+[node name="button" parent="MYWorld/CaveLevel/Prison6" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
+transform = Transform3D(-0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 6.2644, -4.30907, 1.70787)
+target = NodePath("../door")
+
+[node name="column3" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 2.99392, -4.3018, 5.8397)
+
+[node name="column8" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.5, 0, -8.74228e-08, 0, -1, 8.72295, -4.3018, 2.61255)
+
+[node name="column6" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -2.70081, 2.51772)
+
+[node name="column4" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-1, -3.0598e-07, -3.82137e-15, 0, -1.5299e-07, 1, -8.74228e-08, 3.5, 4.37114e-08, 2.99392, -4.38326, 2.51772)
+
+[node name="column5" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -2.70081, 2.60525)
+
+[node name="column7" parent="MYWorld/CaveLevel/Prison6" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1, -7.67135e-07, -5.73206e-15, 8.74359, -4.38086, 2.60525)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MYWorld/CaveLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749988, -1.89192, 0)
+
+[node name="platform-moving" parent="MYWorld/CaveLevel" instance=ExtResource("18_4plyt")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.90457, -4.65098, -61.6635)
+
+[node name="moving_object_path" parent="MYWorld/CaveLevel" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.00876e-06, -10.1079, -68.7322)
+curve = SubResource("Curve3D_wookv")
+object_to_move = NodePath("../platform-moving")
+movement_speed = 2.5
+ping_pong = true
+
+[node name="column2" parent="MYWorld/CaveLevel" instance=ExtResource("70_5mcox")]
+transform = Transform3D(-5, 0, 5.68248e-07, 0, 2, 0, -4.37114e-07, 0, -6.5, 8.289, -4.42689, -0.525787)
+
+[node name="stairs-small-narrow2" parent="MYWorld/CaveLevel" instance=ExtResource("58_0nagt")]
+transform = Transform3D(1.982, 0, 1.66688e-07, 0, 1.937, 0, -1.26002e-07, 0, 2.622, 6.81096, -4.36394, -0.521156)
+
+[node name="shape-slope2" parent="MYWorld/CaveLevel/stairs-small-narrow2" instance=ExtResource("61_pmwha")]
+transform = Transform3D(1.00908, 0, 1.42109e-14, 0, 1.03252, 0, 1.42109e-14, 0, 0.504414, -0.0125794, -0.0330336, 0.00206947)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MYWorld/CaveLevel/stairs-small-narrow2/shape-slope2/shape-slope" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MYWorld/CaveLevel/stairs-small-narrow2/shape-slope2/shape-slope/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1u3y5")
 
 [node name="MountainLevel" type="Node3D" parent="MYWorld"]
 transform = Transform3D(1, 0, -0.000366519, 0, 1, 0, 0.000366519, 0, 1, 2.13537, -0.0171585, -1.17429)
@@ -1613,10 +2141,10 @@ transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, 0.5
 transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, -0.694036, -4.93664, -1.30757)
 
 [node name="rocks10" parent="MYWorld/MountainLevel/Mountain2" instance=ExtResource("33_qj4uo")]
-transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, -3.09033, -7.2075, -1.83251)
+transform = Transform3D(16.2954, 0, 5.41313, 0, 25, 0, -4.84332, 0, 18.2126, -2.21245, -7.2075, -1.83283)
 
 [node name="rocks11" parent="MYWorld/MountainLevel/Mountain2" instance=ExtResource("33_qj4uo")]
-transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, -4.05583, -9.43338, 2.57495)
+transform = Transform3D(-1.11273, 0, 18.9593, 0, 25, 0, -16.9635, 0, -1.24364, 0.966413, -9.43338, 2.01445)
 
 [node name="Mountain3" type="Node3D" parent="MYWorld/MountainLevel"]
 transform = Transform3D(-0.907946, 0, -0.419088, 0, 1, 0, 0.419088, 0, -0.907946, 42.779, 11.1646, 35.4409)
@@ -1662,6 +2190,9 @@ transform = Transform3D(1.30553, -8.55653e-09, -0.738633, -0.738633, -3.22867e-0
 
 [node name="pipe-corner2" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("42_m4ej1")]
 transform = Transform3D(-6.55671e-08, 1.5, 0.000549779, -1.5, -6.55671e-08, 1.31549e-17, 2.40316e-11, -0.000549779, 1.5, 32.1336, 13.2669, 27.4223)
+
+[node name="pipe-corner4" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("42_m4ej1")]
+transform = Transform3D(-0.000270096, 1.5, -0.000478894, 1.3066, 5.73345e-08, -0.736744, -0.736743, -0.000549811, -1.3066, 19.9977, 11.4276, 24.6849)
 
 [node name="pipe-half-section3" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("43_sylu2")]
 transform = Transform3D(-0.000277933, 1.5, -0.00047439, 1.29431, 5.67234e-08, -0.758125, -0.758125, -0.000549811, -1.29431, 31.5952, 13.4112, 27.546)
@@ -1723,10 +2254,10 @@ transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 7.66017,
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 5.87934, 11.8783, 26.8876)
 
 [node name="coin15" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 20.0024, 11.6732, 23.3779)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 20.0022, 11.6732, 22.8348)
 
 [node name="coin2" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 6.76102, 9.87037, 18.783)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 6.14419, 11.8741, 28.7508)
 
 [node name="coin3" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 23.7604, 16.1044, 19.6304)
@@ -1799,6 +2330,10 @@ transform = Transform3D(1.41822, 0, -0.488526, 0, 1.5, 0, 0.488526, 0, 1.41822, 
 
 [node name="trampoline" parent="MYWorld/MountainLevel" instance=ExtResource("45_rdvem")]
 transform = Transform3D(0.590224, 0, -0.107869, 0, 0.6, 0, 0.107869, 0, 0.590224, 27.26, 13.8395, 17.3972)
+trampoline_strength = 15.0
+
+[node name="trampoline3" parent="MYWorld/MountainLevel" instance=ExtResource("45_rdvem")]
+transform = Transform3D(0.57251, 0, -0.179535, 0, 0.6, 0, 0.179535, 0, 0.57251, 26.868, 11.6719, 19.4582)
 trampoline_strength = 15.0
 
 [node name="trampoline2" parent="MYWorld/MountainLevel" instance=ExtResource("45_rdvem")]
@@ -1882,7 +2417,7 @@ light_energy = 2.455
 light_volumetric_fog_energy = 0.0
 
 [node name="Lamp13" parent="MYWorld/Lamps" instance=ExtResource("55_wkcds")]
-transform = Transform3D(0.978771, 0, 0.204957, 0, 1, 0, -0.204957, 0, 0.978771, 15.8116, 11.3621, 24.3609)
+transform = Transform3D(0.978771, 0, 0.204957, 0, 1, 0, -0.204957, 0, 0.978771, 15.8116, 11.5449, 24.3609)
 
 [node name="SpotLight3D" parent="MYWorld/Lamps/Lamp13" index="2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00993347, 2.41671, 0.00608444)
@@ -2271,7 +2806,6 @@ transform = Transform3D(-4.37114e-09, -0.01, 0, 0.1, -4.37114e-10, 0, 0, 0, 0.1,
 
 [node name="shape-cylinder-detailed" parent="Lighthouse/Light/shape-cylinder-detailed2" index="0"]
 transform = Transform3D(1, 8.88178e-16, 0, 8.52651e-14, 1, 0, 0, 0, 1, 0, 0.439087, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_1fk4w")
 
 [node name="Armature" type="Node3D" parent="Lighthouse"]
 
@@ -2325,35 +2859,28 @@ transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -0.0496874, 1.96095,
 [node name="shape-hollow-cylinder-detailed" parent="Lighthouse/Armature/shape-hollow-cylinder-detailed7" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_jskdn")
 
-[node name="number-42" parent="." instance=ExtResource("57_j38bg")]
-transform = Transform3D(-3.66563e-05, 0, -0.8, 0, 0.8, 0, 0.1, 0, -0.00029325, -0.0156093, -1.76016, -6.10702)
+[node name="crate2" parent="." instance=ExtResource("26_p53g0")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 26.8847, 9.1457, 19.7491)
 
-[node name="number-02" parent="." instance=ExtResource("58_adlfe")]
-transform = Transform3D(3.66475e-05, 0, 0.8, 0, 0.8, 0, -0.1, 0, 0.00029318, -0.287609, -1.76016, -6.10712)
+[node name="door" parent="." instance=ExtResource("13_2py5d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.150875, 5.81515, -62.9523)
+look_at_door_when_opens = true
+open_door_with_coins = 40
 
-[node name="number-22" parent="." instance=ExtResource("59_5tl3s")]
-transform = Transform3D(3.66475e-05, 0, 0.8, 0, 0.8, 0, -0.1, 0, 0.00029318, -0.148576, 7.67555, 2.11695)
+[node name="number-42" parent="door" instance=ExtResource("57_j38bg")]
+transform = Transform3D(-3.66563e-05, 0, -0.8, 0, 0.8, 0, 0.1, 0, -0.00029325, 0.135265, 1.70674, -0.327198)
 
-[node name="number-03" parent="." instance=ExtResource("58_adlfe")]
-transform = Transform3D(3.66475e-05, 0, 0.8, 0, 0.8, 0, -0.1, 0, 0.00029318, 0.146424, 7.67555, 2.11706)
+[node name="number-02" parent="door" instance=ExtResource("58_adlfe")]
+transform = Transform3D(3.66475e-05, 0, 0.8, 0, 0.8, 0, -0.1, 0, 0.00029318, -0.136735, 1.70674, -0.327301)
 
-[node name="block-grass-low2" parent="." instance=ExtResource("67_hj72t")]
-transform = Transform3D(0.6, 0, 0, 0, -8.74228e-09, -0.6, 0, 0.2, -2.62268e-08, -0.00094825, 7.89081, 1.95115)
+[node name="block-grass-low3" parent="door" instance=ExtResource("67_hj72t")]
+transform = Transform3D(-0.6, -1.74846e-08, 2.29282e-15, 0, -8.74228e-09, -0.6, 5.24537e-08, -0.2, 2.62268e-08, -0.00397199, 1.74398, -0.220581)
 
-[node name="block-grass-low" parent="block-grass-low2" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_2xxos")
-
-[node name="block-grass-low3" parent="." instance=ExtResource("67_hj72t")]
-transform = Transform3D(-0.6, -1.74846e-08, 2.29282e-15, 0, -8.74228e-09, -0.6, 5.24537e-08, -0.2, 2.62268e-08, -0.154846, -1.72292, -6.0004)
-
-[node name="block-grass-low" parent="block-grass-low3" index="0"]
+[node name="block-grass-low" parent="door/block-grass-low3" index="0"]
 transform = Transform3D(1, 0, 4.23516e-22, 0, 1, 0, 0, 0, 1, 0, 0, -0.28128)
 surface_material_override/0 = SubResource("StandardMaterial3D_2xxos")
 
-[node name="coin-gold2" parent="block-grass-low3" instance=ExtResource("68_nnfsl")]
-transform = Transform3D(-1.66667, 0, 3.64262e-08, -4.37114e-07, -2.18557e-07, -1.25, 6.36895e-15, -1.66667, 1.82131e-08, -0.27066, -40.5732, -16.2926)
-
-[node name="coin-gold3" parent="block-grass-low3" instance=ExtResource("68_nnfsl")]
+[node name="coin-gold3" parent="door/block-grass-low3" instance=ExtResource("68_nnfsl")]
 transform = Transform3D(-1.66667, -1.88214e-22, 3.64262e-08, -4.37114e-07, -2.18557e-07, -1.25, 6.36895e-15, -1.66667, 1.82131e-08, 0.00831014, 0.484552, -0.701225)
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
@@ -2363,11 +2890,17 @@ transform = Transform3D(-1.66667, -1.88214e-22, 3.64262e-08, -4.37114e-07, -2.18
 [editable path="Player"]
 [editable path="Player/Character"]
 [editable path="MYWorld/NormalLevel/trees/tree29"]
+[editable path="MYWorld/NormalLevel/Doors/block-grass-low2"]
 [editable path="MYWorld/NormalLevel/House/shape-cylinder2"]
 [editable path="MYWorld/NormalLevel/House/pipe2/pipe-corner4"]
 [editable path="MYWorld/NormalLevel/House/pipe3/pipe-corner4"]
 [editable path="MYWorld/NormalLevel/House/barrel2"]
 [editable path="MYWorld/CaveLevel/Walls/DoorWall/floor-thick2"]
+[editable path="MYWorld/CaveLevel/Guard"]
+[editable path="MYWorld/CaveLevel/Guard/figurine-large/root/torso/target-a-round2"]
+[editable path="MYWorld/CaveLevel/Guard2"]
+[editable path="MYWorld/CaveLevel/Guard2/figurine-large/root/torso/target-a-round2"]
+[editable path="MYWorld/CaveLevel/stairs-small-narrow2/shape-slope2"]
 [editable path="MYWorld/MountainLevel/Pipes/pipe-corner3"]
 [editable path="MYWorld/Lamps/Lamp"]
 [editable path="MYWorld/Lamps/Lamp/pipe2"]
@@ -2425,5 +2958,4 @@ transform = Transform3D(-1.66667, -1.88214e-22, 3.64262e-08, -4.37114e-07, -2.18
 [editable path="Lighthouse/Light/shape-cylinder-detailed2"]
 [editable path="Lighthouse/Armature/weapon-shield2"]
 [editable path="Lighthouse/Armature/shape-hollow-cylinder-detailed7"]
-[editable path="block-grass-low2"]
-[editable path="block-grass-low3"]
+[editable path="door/block-grass-low3"]
