@@ -1,6 +1,7 @@
-[gd_scene load_steps=148 format=4 uid="uid://e6jwbml72r4o"]
+[gd_scene load_steps=150 format=4 uid="uid://e6jwbml72r4o"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_apxki"]
+[ext_resource type="AudioStream" uid="uid://cvalonb3jfmqj" path="res://sounds/music_zapsplat_a_moment_forever.mp3" id="1_qjy53"]
 [ext_resource type="AudioStream" uid="uid://1j73f5g6kinm" path="res://sounds/Waves.wav" id="2_6bith"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_hgw2l"]
 [ext_resource type="PackedScene" uid="uid://bwyranrox1e3u" path="res://objects/water.tscn" id="2_y6qim"]
@@ -231,7 +232,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_ycg3n"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.68102, 8.09169, 33.405, 0, 0, 0, 0, 0, 0, -16.0447, 8.08125, 33.4249),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.68102, 8.09169, 33.405, 0, 0, 0, 0, 0, 0, -7.40491, 8.08125, 33.4249),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -246,6 +247,13 @@ point_count = 2
 [sub_resource type="Curve3D" id="Curve3D_40bgc"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -31.7205, 11.0747, 11.6288, 0, 0, 0, 0, 0, 0, -27.4231, 11.0619, 11.6414),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_xb8ar"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -16.341, 7.95639, 33.4774, 0, 0, 0, 0, 0, 0, -8.14416, 8.34226, 33.5415),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -429,10 +437,13 @@ metallic = 0.4
 [node name="Main" type="Node3D"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_qjy53")
+volume_db = -20.0
 autoplay = true
 
 [node name="Waves" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_6bith")
+volume_db = -10.0
 autoplay = true
 
 [node name="Environment" type="WorldEnvironment" parent="."]
@@ -870,6 +881,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5348, 11.3847, 14.8127)
 [node name="checkpoint4" parent="MYWorld/NormalLevel/Checkpoints" instance=ExtResource("20_b7drk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9439, 16.7431, 16.1524)
 
+[node name="checkpoint5" parent="MYWorld/NormalLevel/Checkpoints" instance=ExtResource("20_b7drk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281679, 6.01349, 5.42516)
+
 [node name="Fence" type="Node3D" parent="MYWorld/NormalLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23766, 4.49715, -19.2699)
 
@@ -1194,7 +1208,7 @@ is_on_from_start = false
 ping_pong = true
 
 [node name="platform-moving2" parent="MYWorld/NormalLevel/Moving Platforms" instance=ExtResource("18_4plyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98129, 7.85171, 33.5046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.19308, 7.85171, 33.5046)
 
 [node name="moving_object_path3" parent="MYWorld/NormalLevel/Moving Platforms" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
 curve = SubResource("Curve3D_x701w")
@@ -1212,6 +1226,15 @@ ping_pong = true
 
 [node name="platform-moving4" parent="MYWorld/NormalLevel/Moving Platforms" instance=ExtResource("18_4plyt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1246, 11.7879, 11.5665)
+
+[node name="moving_object_path5" parent="MYWorld/NormalLevel/Moving Platforms" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_xb8ar")
+object_to_move = NodePath("../platform-moving5")
+movement_speed = 1.25
+ping_pong = true
+
+[node name="platform-moving5" parent="MYWorld/NormalLevel/Moving Platforms" instance=ExtResource("18_4plyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1704, 7.7087, 33.9366)
 
 [node name="Falling Platforms" type="Node3D" parent="MYWorld/NormalLevel"]
 
@@ -2278,52 +2301,49 @@ transform = Transform3D(16.6062, 0, -4.06573, 0, 25, 0, 3.63775, 0, 18.5599, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70319, 0, -1.50085)
 
 [node name="pipe-split3" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("40_wgcvq")]
-transform = Transform3D(-6.52508e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.52508e-08, 25.4479, 12.7898, 27.546)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 25.4479, 12.7898, 27.546)
 
 [node name="pipe3" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-6.56e-08, -1.5, 6.55671e-08, 0, -6.55671e-08, -1.5, 1.5, -6.56e-08, 2.86576e-15, 27.1089, 13.412, 27.5472)
+transform = Transform3D(-8.74279e-08, -2, 8.74228e-08, 0, -8.74228e-08, -2, 2, -8.74279e-08, 3.82333e-15, 27.1089, 13.6175, 27.5472)
 
 [node name="pipe4" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-6.56e-08, -1.5, 6.55671e-08, 0, -6.55671e-08, -1.5, 1.5, -6.56e-08, 2.86576e-15, 28.1009, 13.412, 27.5472)
+transform = Transform3D(-8.74279e-08, -2, 8.74228e-08, 0, -8.74228e-08, -2, 2, -8.74279e-08, 3.82333e-15, 28.1009, 13.6175, 27.5472)
 
 [node name="pipe5" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-6.56e-08, -1.5, 6.55671e-08, 0, -6.55671e-08, -1.5, 1.5, -6.56e-08, 2.86576e-15, 29.0457, 13.412, 27.5472)
+transform = Transform3D(-8.74279e-08, -2, 8.74228e-08, 0, -8.74228e-08, -2, 2, -8.74279e-08, 3.82333e-15, 29.0457, 13.6175, 27.5472)
 
 [node name="pipe6" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-6.56e-08, -1.5, 6.55671e-08, 0, -6.55671e-08, -1.5, 1.5, -6.56e-08, 2.86576e-15, 29.9425, 13.412, 27.5472)
+transform = Transform3D(-8.74279e-08, -2, 8.74228e-08, 0, -8.74228e-08, -2, 2, -8.74279e-08, 3.82333e-15, 29.9425, 13.6175, 27.5472)
 
 [node name="pipe7" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-6.56e-08, -1.5, 6.55671e-08, 0, -6.55671e-08, -1.5, 1.5, -6.56e-08, 2.86576e-15, 30.883, 13.412, 27.5472)
+transform = Transform3D(-8.74279e-08, -2, 8.74228e-08, 0, -8.74228e-08, -2, 2, -8.74279e-08, 3.82333e-15, 30.883, 13.6175, 27.5472)
 
 [node name="pipe8" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-6.56e-08, -1.5, 6.55671e-08, 0, -6.55671e-08, -1.5, 1.5, -6.56e-08, 2.86576e-15, 31.7879, 13.412, 27.5472)
+transform = Transform3D(-8.74279e-08, -2, 8.74228e-08, 0, -8.74228e-08, -2, 2, -8.74279e-08, 3.82333e-15, 31.7879, 13.6175, 27.5472)
 
 [node name="pipe9" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(1.30553, -8.55653e-09, -0.738633, -0.738633, -3.22867e-08, -1.30553, -8.46921e-09, 1.5, -3.22761e-08, 32.7488, 13.412, 28.4082)
+transform = Transform3D(1.74071, -1.13505e-08, -0.984847, -0.984847, -4.3049e-08, -1.74071, -1.10012e-08, 2, -4.32192e-08, 32.5987, 13.6115, 28.4083)
 
 [node name="pipe11" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(1.30553, -8.55653e-09, -0.738633, -0.738633, -3.22867e-08, -1.30553, -8.46921e-09, 1.5, -3.22761e-08, 32.7499, 13.412, 29.3556)
+transform = Transform3D(1.74071, -1.13505e-08, -0.984847, -0.984847, -4.3049e-08, -1.74071, -1.10012e-08, 2, -4.32192e-08, 32.5998, 13.6115, 29.3556)
 
 [node name="pipe12" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(1.30553, -8.55653e-09, -0.738633, -0.738633, -3.22867e-08, -1.30553, -8.46921e-09, 1.5, -3.22761e-08, 32.7592, 13.412, 30.325)
+transform = Transform3D(1.74071, -1.13505e-08, -0.984847, -0.984847, -4.3049e-08, -1.74071, -1.10012e-08, 2, -4.32192e-08, 32.6091, 13.6115, 30.3251)
 
 [node name="pipe-corner2" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("42_m4ej1")]
-transform = Transform3D(-6.55671e-08, 1.5, 0.000549779, -1.5, -6.55671e-08, 1.31549e-17, 2.40316e-11, -0.000549779, 1.5, 32.1336, 13.2669, 27.4223)
-
-[node name="pipe-corner4" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("42_m4ej1")]
-transform = Transform3D(-0.000270096, 1.5, -0.000478894, 1.3066, 5.73345e-08, -0.736744, -0.736743, -0.000549811, -1.3066, 19.9977, 11.4276, 24.6849)
+transform = Transform3D(-8.74228e-08, 2, 0.000733039, -2, -8.74228e-08, -1.25287e-17, 3.20421e-11, -0.000733039, 2, 31.7697, 13.4124, 27.3854)
 
 [node name="pipe-half-section3" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("43_sylu2")]
-transform = Transform3D(-0.000277933, 1.5, -0.00047439, 1.29431, 5.67234e-08, -0.758125, -0.758125, -0.000549811, -1.29431, 31.5952, 13.4112, 27.546)
+transform = Transform3D(-0.000370724, 2, -0.00063266, 1.72575, 1.3029e-07, -1.01084, -1.01084, -0.000733277, -1.72575, 31.3024, 13.6205, 27.5502)
 
 [node name="pipe-half-section4" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("43_sylu2")]
-transform = Transform3D(2.40377e-11, -0.000549918, 1.5, -1.5, -6.55671e-08, 2.42861e-17, 6.55671e-08, -1.5, -0.000549918, 32.7519, 13.412, 28.4331)
+transform = Transform3D(3.20503e-11, -0.000733225, 2, -2, -8.74228e-08, 2.31296e-17, 8.74228e-08, -2, -0.000733225, 32.6273, 13.5906, 28.7529)
 
 [node name="pipe-corner3" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("42_m4ej1")]
-transform = Transform3D(-1.36595, 0.619824, -4.90112e-05, 0.619824, 1.36595, -0.000227231, -4.92636e-05, -0.000227177, -1.5, 32.3662, 12.9176, 32.4687)
+transform = Transform3D(-1.82127, 0.826432, -6.51518e-05, 0.826432, 1.82127, -0.000302975, -6.58647e-05, -0.000302821, -2, 32.3662, 12.9176, 32.4687)
 
 [node name="pipe-corner" parent="MYWorld/MountainLevel/Pipes/pipe-corner3" index="0"]
-transform = Transform3D(0.998128, -0.0611531, 6.86268e-07, 0.0611531, 0.998128, -2.24192e-05, 6.86443e-07, 2.2419e-05, 1, 0.0226612, 0.00479317, -5.72205e-06)
+transform = Transform3D(0.998128, -0.0611531, 6.8621e-07, 0.0611531, 0.998128, -2.24192e-05, 6.86414e-07, 2.24189e-05, 1, 0.156414, -0.0379276, -0.144979)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MYWorld/MountainLevel/Pipes/pipe-corner3/pipe-corner" index="0"]
 
@@ -2331,31 +2351,25 @@ transform = Transform3D(0.998128, -0.0611531, 6.86268e-07, 0.0611531, 0.998128, 
 shape = SubResource("ConcavePolygonShape3D_opb13")
 
 [node name="pipe-split2" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("40_wgcvq")]
-transform = Transform3D(-0.000549918, 0, 1.5, 0, 1.5, 0, -1.5, 0, -0.000549918, 10.1765, 10.6166, 24.6464)
+transform = Transform3D(-0.000733225, 0, 2, 0, 2, 0, -2, 0, -0.000733225, 10.1765, 10.6166, 24.6464)
 
 [node name="pipe2" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 11.7742, 11.2335, 24.6455)
+transform = Transform3D(-0.000355806, -2, 0.000640888, 1.7487, -7.6438e-08, 0.970598, -0.970598, 0.000733032, 1.7487, 12.848, 11.4508, 24.6451)
 
 [node name="pipe10" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 12.9337, 11.2335, 24.6451)
-
-[node name="pipe13" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 14.1222, 11.2335, 24.6446)
+transform = Transform3D(-0.000355806, -2, 0.000640888, 1.7487, -7.6438e-08, 0.970598, -0.970598, 0.000733032, 1.7487, 14.7226, 11.4508, 24.6444)
 
 [node name="pipe14" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 15.2923, 11.2335, 24.6442)
+transform = Transform3D(-0.000355806, -2, 0.000640888, 1.7487, -7.6438e-08, 0.970598, -0.970598, 0.000733032, 1.7487, 16.6054, 11.4508, 24.6437)
 
 [node name="pipe15" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 16.4701, 11.2335, 24.6438)
-
-[node name="pipe16" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 17.6391, 11.2335, 24.6434)
+transform = Transform3D(-0.000355806, -2, 0.000640888, 1.7487, -7.6438e-08, 0.970598, -0.970598, 0.000733032, 1.7487, 18.4983, 11.4508, 24.6431)
 
 [node name="pipe17" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 18.8264, 11.2335, 24.6429)
+transform = Transform3D(-0.000355806, -2, 0.000640888, 1.7487, -7.6438e-08, 0.970598, -0.970598, 0.000733032, 1.7487, 20.4245, 11.4508, 24.6423)
 
 [node name="pipe18" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("41_lcrg5")]
-transform = Transform3D(-0.000266854, -1.5, 0.000480667, 1.31152, -5.73285e-08, 0.727947, -0.727947, 0.000549774, 1.31152, 20.0053, 11.2335, 24.6425)
+transform = Transform3D(-0.000355806, -2, 0.000640888, 1.7487, -7.6438e-08, 0.970598, -0.970598, 0.000733032, 1.7487, 22.3032, 11.4508, 24.6417)
 
 [node name="arrows2" parent="MYWorld/MountainLevel/Pipes" instance=ExtResource("55_1gbpf")]
 transform = Transform3D(-1.5, 0, 1.31258e-07, 0, 1.5, 0, -1.31258e-07, 0, -1.5, -2.36417, 7.86887, 36.5808)
@@ -2370,13 +2384,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.54832, 0, -2.03192)
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 7.66017, 10.7451, 25.3911)
 
 [node name="coin14" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 5.87934, 11.8783, 26.8876)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 6.11969, 11.8783, 27.6731)
 
 [node name="coin15" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 20.0022, 11.6732, 22.8348)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 20.764, 15.1251, 19.4022)
 
 [node name="coin2" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 6.14419, 11.8741, 28.7508)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 11.6693, 11.9034, 25.1522)
 
 [node name="coin3" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 23.7604, 16.1044, 19.6304)
@@ -2391,16 +2405,16 @@ transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 24.8251,
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 25.2435, 16.1044, 23.9538)
 
 [node name="coin4" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 24.8391, 13.4789, 28.0656)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 24.8391, 13.7793, 28.0656)
 
 [node name="coin5" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 31.9517, 13.5544, 28.0442)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 31.7231, 13.8076, 28.0443)
 
 [node name="coin6" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 30.8808, 13.587, 28.0438)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 29.4375, 13.8238, 28.0443)
 
 [node name="coin7" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 31.9819, 13.488, 29.1159)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 31.7863, 13.7423, 30.5239)
 
 [node name="coin8" parent="MYWorld/MountainLevel/Coins" instance=ExtResource("20_lfsn4")]
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 36.8656, 16.5128, 39.1876)
