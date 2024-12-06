@@ -1,6 +1,7 @@
-[gd_scene load_steps=125 format=3 uid="uid://e6jwbml72r4o"]
+[gd_scene load_steps=148 format=4 uid="uid://e6jwbml72r4o"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_apxki"]
+[ext_resource type="AudioStream" uid="uid://1j73f5g6kinm" path="res://sounds/Waves.wav" id="2_6bith"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_hgw2l"]
 [ext_resource type="PackedScene" uid="uid://bwyranrox1e3u" path="res://objects/water.tscn" id="2_y6qim"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="3_xcrwe"]
@@ -74,6 +75,15 @@
 [ext_resource type="PackedScene" uid="uid://0y3y2t0t05ts" path="res://models/props/block-grass-low.glb" id="67_hj72t"]
 [ext_resource type="PackedScene" uid="uid://c0lopeux2v51l" path="res://models/props/coin-gold.glb" id="68_nnfsl"]
 [ext_resource type="PackedScene" uid="uid://cabon4dlf7od5" path="res://objects/column_2.tscn" id="70_5mcox"]
+[ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="70_o33ur"]
+[ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="71_ft27i"]
+[ext_resource type="PackedScene" uid="uid://b3h8utr4fh2m7" path="res://models/prototyping/models/indicator-round-d.glb" id="72_mfacs"]
+[ext_resource type="PackedScene" uid="uid://dyqacu3ea8s8q" path="res://objects/Yellow_flowers.tscn" id="74_eud7c"]
+[ext_resource type="PackedScene" uid="uid://be663rsk85hsv" path="res://objects/fire_flies.tscn" id="78_ihred"]
+[ext_resource type="PackedScene" uid="uid://73nktay1f7dh" path="res://models/props/jewel.glb" id="81_yrp2b"]
+[ext_resource type="PackedScene" uid="uid://dmg3eddclu4p3" path="res://models/props/trap-spikes.glb" id="82_gl83a"]
+[ext_resource type="PackedScene" uid="uid://djkqbhp8eha2y" path="res://objects/LightFlower.tscn" id="83_dfdlb"]
+[ext_resource type="PackedScene" uid="uid://rwa218730lgk" path="res://models/prototyping/models/indicator-round-c.glb" id="83_tsbid"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
 auto_exposure_scale = 0.75
@@ -103,6 +113,13 @@ font = ExtResource("25_vfu23")
 font_size = 42
 shadow_color = Color(0, 0, 0, 0.376471)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Curve3D" id="Curve3D_wookv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.77234, 5.77971, -59.8967, 0, 0, 0, 0, 0, 0, 3.04235, 5.95152, -6.64477),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52fuk"]
 albedo_color = Color(1, 0.572549, 0.121569, 1)
@@ -236,13 +253,6 @@ point_count = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_forkn"]
 albedo_color = Color(0.000693898, 0.000693898, 0.000693898, 1)
 
-[sub_resource type="Curve3D" id="Curve3D_wookv"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.77234, 5.77971, -59.8967, 0, 0, 0, 0, 0, 0, 3.04235, 5.95152, -6.64477),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1u3y5"]
 data = PackedVector3Array(0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 0, 0.5)
 
@@ -252,6 +262,102 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjj3s"]
+albedo_color = Color(0.750941, 0.743506, 0.745358, 0.901961)
+metallic = 0.4
+roughness = 0.33
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr00v"]
+transparency = 1
+albedo_color = Color(0.8, 1, 1, 0.427451)
+metallic = 1.0
+emission = Color(0.462745, 0.635294, 0.584314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71o5g"]
+albedo_texture = ExtResource("71_ft27i")
+metallic = 0.62
+roughness = 0.5
+uv1_scale = Vector3(0.625, 0.625, 0.625)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pu03g"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("71_ft27i")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rar7f"]
+_surfaces = [{
+"aabb": AABB(-0.169332, 0, -0.169332, 0.338663, 0.137049, 0.338663),
+"format": 34896613377,
+"index_count": 264,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYAAQAAAAgACAAJAAEACgAGAAcABwALAAoABAAGAAoACgAMAAQACgANAAwADQAOAAwADQAPAA4AEAAOAA8ADwARABAAEQASABAAEQATABIAEwAUABIAAQAJABUAFQAQAAEAEAADAAEAEAASAAMAEgAWAAMAFwAFAAgAGAAXAAgAFQAMAA4ADgAQABUAGwAZABoAGgAEABsABAAMABsADAAJABsADAAVAAkACQAIABwAHAAbAAkACwAdAA0ADQAKAAsAHgAUABMAEwAfAB4ADwAXACAAIAARAA8AIgAhABwAHAAFACIAHAAIAAUAGQAhACIAIgAaABkAGAAjABYAFgASABgAIgAFAAQABAAaACIAIAAXABgAGAAeACAAHgAfACAAEQAgAB8AHwATABEAFwAPAA0ADQAdABcAHgAYABIAEgAUAB4AGAAIAAAAAAACABgAAgAjABgAGwAcACEAIQAZABsAIwACAAMAAwAWACMACwAHAAUABQAdAAsABQAXAB0AJgAkACUAJQAnACYAJQAoACcAKAApACcALAAqACsAKwAtACwAKwAuAC0ALgAvAC0AKwAqACQAJAAmACsAKQAoAC0ALQAvACkAJwApAC8ALwAuACcAKwAmACcAJwAuACsALAAlACQAJAAqACwALQAoACUAJQAsAC0A"),
+"lods": [0.0629236, PackedByteArray("AgAAAAEAAQAAAAgACAAJAAEAAQADAAIAAwAWAAIACgAEAAUABQAHAAoABwALAAoACgAPAAQACgANAA8ABAAPABsAGgAEABsADwAJABsACQASAAEADwARABIAEQATABIAEgADAAEAEgAWAAMAFwAFAAgABQAXAAsACwAHAAUAGAAXAAgAIAAXABgAGAAeACAAGAAIAAAAAAACABgADwASAAkACQAIABwAHAAbAAkAGwAcACEADQAKAAsAEwAgAB4ADwAXACAAIAARAA8AIAATABEAIgAhABwAHAAFACIAHAAIAAUAGgAhACIABAAaACIAIgAFAAQAGAACABYAFgASABgAFwAPAA0ADQALABcAHgAYABIAEgATAB4AIQAaABsAJQAoACcAKwAuAC0AJQAnACsALQAuACgAJwAoAC4AJwAuACsALQAoACUAJQArAC0A"), 0.0919722, PackedByteArray("CgAEAAUABQALAAoAAwACAAgACAAJAAMACgAPAAQADwARABIADwASAAkACQASAAMADwAJABoABAAPABoAFwAFAAgABQAXAAsAGAAXAAgAIAAXABgAGAAIAAIACQAIABwAHAAaAAkADwAXACAAIAARAA8AHAAIAAUAGAACAAMAAwASABgAHAAFAAQABAAaABwAFwAPAAoACgALABcAIAAYABIAEgARACAA")],
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("bd7HWUIyAACd0RvTi0sAANrAq4YAAAAACrT//0kZAACalcSh/MEAAJqVAAD8wQAA+YUb09XgAAApecdZHvoAAPzBAABkagAA/MHEoWRqAAD0S///teYAACQ/q4b//wAAIYlTeeObAABhLhvTc7QAABtkU3khiQAAAj7EoZqVAADddlN5G2QAACkfG9P5hQAAZGrEoQI+AABJGf//9EsAAItLG9NhLgAA45tTed12AAAFehvTKR8AAAI+AACalQAAZGoAAAI+AAC15v//CrQAAHO0G9Od0QAA1eAb0wV6AAAe+sdZ1YYAAJEhx1m8zQAAQjLHWZEhAAAAAKuGJD8AAOAFx1kpeQAA//+rhtrAAAC8zcdZbd4AANWGx1ngBQAAkbIMRp+ZAAB5rwxGA2EAABeDDEabuAAAhVAMRvueAADnfAxGY0cAAG1NDEZfZgAAdKiEsH+UAAB5goSwSK0AAPqlhLA1ZwAAhX2EsLZSAAAEWoSwyZgAAIpXhLB/awAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_88ae8"]
+resource_name = "flowers_Group2"
+_surfaces = [{
+"aabb": AABB(-0.169332, 0, -0.169332, 0.338663, 0.137049, 0.338663),
+"attribute_data": PackedByteArray("/7ekp/+3YI//t6me/7dlhv+3Ppn/t5i5/7dgj/+3pKf/t6Sn/7eYuf+3YI//tz6Z/7dgj/+3pKf/t2WG/7epnv+3YI//t2WG/7c+mf+3VaH/t2CP/7dVof+3Ppn/t1Wh/7c+mf+3VaH/t2CP/7c+mf+3ZYb/t2CP/7c+mf+3VaH/t2CP/7dVof+3ZYb/tz6Z/7dgj/+3mLn/t5i5/7eYuf+3mLn/t1Wh/7dVof+3VaH/t1Wh/7dlhv+3YI//t2CP/7c+mf+3VaH/tz6Z/7dVof+3mLn/t6Sn/7c+mf+3YI//t6Sn/7dgj/+3qZ7/t2WG/7dgj/+3ZYb/t6Sn/7epnv+3mLn/t6Sn/7c+mf+3YI//t6me/7ekp/+3pKf/t5i5/7eYuf+3qZ7/t6Sn/7dlhv+3YI//t6Sn/7dgj/+3mLn/tz6Z/7eYuf+3Ppn/t6Sn/7dgj/+3mLn/t5i5/7ekp/+3pKf/t6me/7ekp/+3qZ7/t2CP/7dlhv+3Ppn/t2CP/7eYuf+3pKf/t5i5/7c+mf+3pKf/t2CP/7eYuf+3pKf/t5i5/7epnv+3pKf/t6Sn/7epnv+3YI//t2WG/7epnv+3ZYb/t6Sn/7dgj/+3pKf/t5i5/7epnv+3pKf/t5i5/1eYuf9XmLn/V5i5/1eYuf9XmLn/V5i5/1dlhv9XZYb/V2WG/1dlhv9XZYb/V2WG/1dlhv9XmLn/V2WG/1eYuf9XmLn/V2WG/1eYuf9XZYb/V5i5/1dlhv9XmLn/V2WG/1eYuf9XmLn/V2WG/1dlhv9XmLn/V5i5/1dlhv9XZYb/V5i5/1eYuf9XZYb/V2WG/7epnv+3qZ7/t2WG/7dlhv+3Ppn/t5i5/7eYuf+3mLn/t5i5/7c+mf+3ZYb/t2WG/7epnv+3qZ7/tz6Z/7c+mf+3Ppn/tz6Z/7c+mf+3mLn/t5i5/7eYuf+3mLn/t6Sn/7ekp/+3Ppn/t6Sn/7ekp/+3YI//t2CP/7eYuf+3Ppn/t5i5/7c+mf+3Ppn/t5i5/7eYuf+3Ppn/tz6Z/7ekp/+3YI//t6me/7epnv+3qZ7/t2WG/7c+mf+3mLn/t5i5/7ekp/+3mLn/t2WG/7dlhv+3ZYb/t6me/7epnv+3qZ7/tz6Z/7c+mf+3Ppn/tz6Z/7eYuf+3mLn/t2CP/7dgj/+3YI//t2WG/7dlhv+3ZYb/t6Sn/7ekp/+3qZ7/t6me/7epnv+3YI//t2CP/7dgj/+3mLn/t5i5/7c+mf9XZYb/V2WG/1eYuf9XmLn/V5i5/1dlhv9XZYb/V2WG/1eYuf9XmLn/V2WG/1dlhv9XZYb/V5i5/1eYuQ=="),
+"format": 34896613399,
+"index_count": 264,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAEQAUABMAFAAVABMAFAAWABUAGQAXABgAGAAaABkAGgAbABkAGgAcABsAHAAdABsAIAAeAB8AHwAhACAAIQAiACAAIQAjACIAIwAkACIAJwAlACYAKAAnACYAKwApACoAKgAsACsALwAtAC4ALgAwAC8AMAAxAC8AMQAyAC8AMQAzADIANgA0ADUANQA3ADYAOgA4ADkAOQA7ADoAPgA8AD0APQA/AD4AQgBAAEEAQQBDAEIARgBEAEUARQBHAEYARQBIAEcASwBJAEoASgBMAEsATwBNAE4ATgBQAE8AUwBRAFIAUgBUAFMAVwBVAFYAVgBYAFcAWABZAFcAXABaAFsAWwBdAFwAYABeAF8AXwBhAGAAZABiAGMAYwBlAGQAaABmAGcAZwBpAGgAaQBqAGgAbQBrAGwAbABuAG0AcQBvAHAAcAByAHEAdQBzAHQAdAB2AHUAdAB3AHYAegB4AHkAeQB7AHoAeQB8AHsAfAB9AHsAgAB+AH8AfwCBAIAAfwCCAIEAggCDAIEAhgCEAIUAhQCHAIYAigCIAIkAiQCLAIoAjgCMAI0AjQCPAI4AkgCQAJEAkQCTAJIAlgCUAJUAlQCXAJYAmgCYAJkAmQCbAJoA"),
+"lods": [0.0629236, PackedByteArray("xQDDAMQAxADDAAkACQALAMQAxADIAMUAyADnAMcAzgDJAMoAygDMAM8AzADRAM4AEQDVANQAEQAUANUA1ADVAC8ALgDUAC8A1QDXAC8A1wDWACAA1QAaANYAGgAcANYA1gAiACAA1gAkACIA2AAlACYAJQDYAHUAdQBzACUA2QDYACYAVwDYANkA2QBYAFcA2QAmAGcAZwBpANkAFgAbAB4ANgA0ADUANQA3ADYANwA1AOMA2wDQANIA3QDhAOAAQgBAAEEAQQBDAEIAQQDeAEMARgBEAEUARQDLAEYARQDNAMsATADiAEoAUgBMAEoASgBRAFIA6ADGAOYA5gBQAOgAYABeANwA3ADTAOkAPgBiAOoA6gDfAD4A5ADlANoAeQB8AHsAfwCCAIEAlACOAIYA8AD1AO0A8wDuAPYA9AD3AOsA8QDvAPgA+QDsAPIA"), 0.0919722, PackedByteArray("pgCgAKEAoQCoAKYAngCcAKMAowClAJ4AEQCrABIAqwAaAK0AqwCtAB4ArgCtACIAqwCuAC4AqgCsAC4AsQCvACYArwCxAHUAsgCxACYAVwCxALIAsgCwAGkANgA0ADUAswC5ALUAQgBAAEEAQQBDAEIARQCkAKIAugCdAJ8AnwC7ALoAtAC8AL0AUgBMALQAvwC+AKcApwCpAL8AtgDAAMEAwgC4ALcA")],
+"material": SubResource("StandardMaterial3D_pu03g"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 250,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rar7f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8rqk"]
+albedo_texture = ExtResource("71_ft27i")
+metallic = 1.0
+roughness = 0.0
+uv1_offset = Vector3(0.03, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l1ey"]
+albedo_texture = ExtResource("71_ft27i")
+metallic = 0.33
+roughness = 0.0
+emission_enabled = true
+emission = Color(0, 4.23551e-06, 0.991546, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkfsc"]
+albedo_texture = ExtResource("71_ft27i")
+metallic = 1.0
+uv1_offset = Vector3(2.89, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5era"]
+albedo_texture = ExtResource("71_ft27i")
+emission_enabled = true
+emission = Color(0.917647, 0.733333, 0, 1)
+emission_energy_multiplier = 7.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgpp7"]
+albedo_texture = ExtResource("71_ft27i")
+emission_enabled = true
+emission = Color(0.464635, 0.174992, 0, 1)
+emission_energy_multiplier = 16.0
+uv1_offset = Vector3(1.23, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brpdi"]
+albedo_texture = ExtResource("71_ft27i")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+uv1_offset = Vector3(0.42, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxhd3"]
 albedo_color = Color(1, 0.06, 0.06, 1)
@@ -304,6 +410,12 @@ _data = {
 "RESET": SubResource("Animation_srhr3")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e80jt"]
+albedo_color = Color(1, 1, 0.4, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.517647, 1)
+emission_energy_multiplier = 8.01
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ucxw"]
 albedo_color = Color(1, 0.0588235, 0.0588235, 1)
 
@@ -316,6 +428,13 @@ metallic = 0.4
 
 [node name="Main" type="Node3D"]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+autoplay = true
+
+[node name="Waves" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_6bith")
+autoplay = true
+
 [node name="Environment" type="WorldEnvironment" parent="."]
 unique_name_in_owner = true
 environment = ExtResource("1_apxki")
@@ -325,7 +444,7 @@ camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 transform = Transform3D(2.195, 0, 0, 0, 1, 0, 0, 0, 2.205, 0, 0, 41.8492)
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_hgw2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307691, 6.08632, 3.63898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307691, 6.08632, 3.63923)
 view = NodePath("../View")
 
 [node name="Character" parent="Player" index="1"]
@@ -515,6 +634,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8668, 8.58094, 28.2327)
 
 [node name="flag" parent="MYWorld" instance=ExtResource("7_dhnka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93464, 0)
+
+[node name="platform-moving" parent="MYWorld" instance=ExtResource("18_4plyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90458, 5.45692, -56.3927)
+
+[node name="moving_object_path" parent="MYWorld" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_wookv")
+object_to_move = NodePath("../platform-moving")
+movement_speed = 2.5
+ping_pong = true
 
 [node name="NormalLevel" type="Node3D" parent="MYWorld"]
 
@@ -1504,7 +1632,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86391, 6.01352, 2.45197)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46199, 6.01352, 2.61352)
 
 [node name="CaveLevel" type="Node3D" parent="MYWorld"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 10.1079, -68.7322)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 10.1079, -118.056)
+visible = false
 
 [node name="Platform" type="Node3D" parent="MYWorld/CaveLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.31024, 0)
@@ -2081,16 +2210,6 @@ transform = Transform3D(1.31134e-07, -5.85, -4.37114e-08, 0, -2.55712e-07, 1, -1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="MYWorld/CaveLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749988, -1.89192, 0)
-
-[node name="platform-moving" parent="MYWorld/CaveLevel" instance=ExtResource("18_4plyt")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.90457, -4.65098, -61.6635)
-
-[node name="moving_object_path" parent="MYWorld/CaveLevel" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.00876e-06, -10.1079, -68.7322)
-curve = SubResource("Curve3D_wookv")
-object_to_move = NodePath("../platform-moving")
-movement_speed = 2.5
-ping_pong = true
 
 [node name="column2" parent="MYWorld/CaveLevel" instance=ExtResource("70_5mcox")]
 transform = Transform3D(-5, 0, 5.68248e-07, 0, 2, 0, -4.37114e-07, 0, -6.5, 8.289, -4.42689, -0.525787)
@@ -2724,6 +2843,1041 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39394, 0)
 light_energy = 2.455
 light_volumetric_fog_energy = 0.0
 
+[node name="MysteryIsland" type="Node3D" parent="MYWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.81485, -50.1982)
+
+[node name="block-grass-large2" parent="MYWorld/MysteryIsland" instance=ExtResource("26_bfdyb")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -13.7687, -25.4157)
+
+[node name="block-grass-corner2" parent="MYWorld/MysteryIsland" instance=ExtResource("29_15rum")]
+transform = Transform3D(-3.28559, 0, 2.28142, 0, 3, 0, -2.28142, 0, -3.28559, 1.55073, -1.77, -10.7134)
+
+[node name="Mountain bottom" type="Node3D" parent="MYWorld/MysteryIsland"]
+
+[node name="rocks2" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(17.5075, 0, 17.8462, 0, 25, 0, -17.8462, 0, 17.5075, -13.04, 1.42997, -11.088)
+
+[node name="rocks3" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-7.36352, 0, -23.891, 0, 25, 0, 23.891, 0, -7.36352, -11.7787, 1.42997, -16.5259)
+
+[node name="rocks4" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-2.32099, 0, 24.892, 0, 25, 0, -24.892, 0, -2.32099, 10.7423, 1.06241, -10.5064)
+
+[node name="rocks5" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96279, 0, 25, 0, -1.96279, 0, -24.9228, 17.8954, 1.42997, -16.4287)
+
+[node name="rocks6" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, 17.176, 1.42997, -21.0995)
+
+[node name="rocks7" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, 19.5505, 1.42997, -28.5422)
+
+[node name="rocks8" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, 21.3413, 1.42997, -34.9915)
+
+[node name="rocks9" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, 17.176, 1.42997, -42.9294)
+
+[node name="rocks10" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, 10.787, 1.42997, -45.7376)
+
+[node name="rocks11" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, 3.78696, 1.42997, -46.3274)
+
+[node name="rocks12" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, -2.45976, 1.42997, -45.1047)
+
+[node name="rocks13" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, -8.56604, 1.42997, -41.9331)
+
+[node name="rocks14" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, -13.6272, 1.42997, -37.9331)
+
+[node name="rocks15" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, -16.0355, 1.42997, -31.6039)
+
+[node name="rocks16" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-24.9228, 0, 1.96278, 0, 25, 0, -1.96278, 0, -24.9228, -16.7392, 1.42997, -24.6039)
+
+[node name="Mountain Second layer" type="Node3D" parent="MYWorld/MysteryIsland"]
+
+[node name="rocks17" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-4.46656, 0, 11.6748, 0, 12.5, 0, -11.6748, 0, -4.46656, -17.4905, 8.61008, -24.9358)
+visible = false
+
+[node name="rocks42" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-11.928, 0, -3.73801, 0, 12.5, 0, 3.73801, 0, -11.928, -19.1193, 3.91782, -24.9358)
+
+[node name="rocks43" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-11.928, 0, -3.73801, 0, 12.5, 0, 3.73801, 0, -11.928, -19.1193, 3.91782, -18.9358)
+
+[node name="rocks38" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(12.3501, 0, -1.93, 0, 12.5, 0, 1.93, 0, 12.3501, -15.4793, 8.61008, -24.9791)
+visible = false
+
+[node name="rocks39" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(12.3501, 0, -1.93, 0, 12.5, 0, 1.93, 0, 12.3501, -15.4793, 2.89242, -24.9791)
+
+[node name="rocks40" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-1.23477, 0, -12.4389, 0, 12.5, 0, 12.4389, 0, -1.23477, -15.4793, 8.31809, -20.4871)
+visible = false
+
+[node name="rocks41" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-1.23477, 0, -12.4389, 0, 12.5, 0, 12.4389, 0, -1.23477, -15.4793, 5.4851, -19.548)
+
+[node name="rocks18" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-5.80318, 0, -11.0713, 0, 12.5, 0, 11.0713, 0, -5.80318, -7.02362, 9.80351, -12.1643)
+visible = false
+
+[node name="rocks48" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(13.0033, 0, 5.1878, 0, 14, 0, -5.1878, 0, 13.0033, -11.9526, 5.03401, -14.6851)
+
+[node name="rocks49" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(13.0033, 0, 5.1878, 0, 14, 0, -5.1878, 0, 13.0033, -11.2084, 3.0773, -14.9786)
+
+[node name="rocks44" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-3.68176, 0, -11.9455, 0, 12.5, 0, 11.9455, 0, -3.68176, -11.9986, 9.26575, -14.7488)
+visible = false
+
+[node name="rocks32" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-3.68176, 3.49246e-07, -11.9455, 0.803116, -12.4717, -0.247531, -11.9185, -0.840397, 3.67343, 2.50117, 8.04376, -13.3682)
+
+[node name="rocks34" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(0.842589, -12.471, -0.1193, 3.67293, 0.133866, 11.9475, -11.9185, -0.840397, 3.67343, 6.37973, 6.92114, -12.5319)
+
+[node name="rocks35" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(3.76228, -3.34404, 11.4417, 0.21348, 12.015, 3.44141, -11.9185, -0.840397, 3.67343, -1.9203, 7.31454, -11.3453)
+
+[node name="rocks36" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(2.95904, 5.45785, 10.8492, -2.33334, 11.2141, -5.00499, -11.9185, -0.840397, 3.67343, 6.01067, 7.18846, -12.5319)
+
+[node name="rocks33" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-3.68176, 4.02089e-07, -11.9455, 0.803116, -12.4717, -0.247532, -11.9185, -0.840396, 3.67343, -2.93734, 6.30061, -11.5196)
+
+[node name="rocks19" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.1548, 0, 2.91722, 0, 12.5, 0, -2.91722, 0, -12.1548, 9.78548, 9.80351, -12.0443)
+visible = false
+
+[node name="rocks20" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, 15.6688, 9.80351, -16.4287)
+visible = false
+
+[node name="rocks21" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(7.07487, 0, 10.3052, 0, 12.5, 0, -10.3052, 0, 7.07487, 13.5393, 6.21755, -21.0995)
+
+[node name="rocks22" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-0.455648, 0, -12.4917, 0, 12.5, 0, 12.4917, 0, -0.455648, 14.7588, 9.1153, -26.5225)
+visible = false
+
+[node name="rocks23" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, 17.176, 9.80351, -30.6481)
+visible = false
+
+[node name="rocks47" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-11.4545, -4.92247, 0.902093, -4.90728, 11.49, 0.38647, -0.981392, 2.14017e-08, -12.4614, 14.8326, 9.80351, -33.0771)
+visible = false
+
+[node name="rocks24" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, 15.2221, 9.80351, -37.5428)
+visible = false
+
+[node name="rocks25" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, 10.787, 9.80351, -39.5947)
+visible = false
+
+[node name="rocks26" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-2.69122, 5.55112e-15, 12.2069, 5.35879, 11.2311, 1.18144, -10.9677, 5.48748, -2.41803, 6.17785, 9.80351, -39.7827)
+visible = false
+
+[node name="rocks45" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-8.85027, 0, 1.63487, 0, 9, 0, -1.63487, 0, -8.85027, 2.08355, 8.88723, -39.6312)
+visible = false
+
+[node name="rocks27" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, -1.6961, 9.07462, -40.6304)
+visible = false
+
+[node name="rocks37" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, -2.79841, 9.15711, -40.846)
+visible = false
+
+[node name="rocks28" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, -6.52418, 9.26536, -41.3621)
+visible = false
+
+[node name="rocks29" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, -9.33806, 8.96479, -40.2011)
+visible = false
+
+[node name="rocks46" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-12.4614, 0, 0.981392, 0, 12.5, 0, -0.981392, 0, -12.4614, -12.5487, 8.09869, -39.8152)
+visible = false
+
+[node name="rocks30" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-6.23185, 0, -10.8358, 0, 12.5, 0, 10.8358, 0, -6.23185, -15.5963, 8.80656, -36.6371)
+visible = false
+
+[node name="rocks31" parent="MYWorld/MysteryIsland/Mountain Second layer" instance=ExtResource("33_qj4uo")]
+transform = Transform3D(-3.8652, 0, -11.8874, 0, 12.5, 0, 11.8874, 0, -3.8652, -15.5464, 9.16044, -31.9935)
+visible = false
+
+[node name="Grave" type="Node3D" parent="MYWorld/MysteryIsland"]
+
+[node name="floor-thick2" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("39_8u8d1")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 2, 1.51947, 1.26498, -32.2045)
+
+[node name="floor-thick" parent="MYWorld/MysteryIsland/Grave/floor-thick2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vjj3s")
+
+[node name="floor-thick3" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("39_8u8d1")]
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 1.9, 1.51947, 1.86282, -32.2045)
+
+[node name="floor-thick" parent="MYWorld/MysteryIsland/Grave/floor-thick3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xr00v")
+
+[node name="character" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("70_o33ur")]
+transform = Transform3D(-5.12826e-08, 0.98144, -0.191768, 3.45177e-08, 0.191768, 0.98144, 1, 4.37114e-08, -4.37114e-08, 1.07506, 2.00834, -32.1549)
+
+[node name="antenna" parent="MYWorld/MysteryIsland/Grave/character/character/root/torso" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_71o5g")
+
+[node name="indicator-round-d2" parent="MYWorld/MysteryIsland/Grave/character" instance=ExtResource("72_mfacs")]
+transform = Transform3D(-2.20795e-08, -2.33623e-08, 0.52, -0.0146735, 0.519793, 2.27299e-08, -0.519793, -0.0146735, -2.27299e-08, 0.0128174, 0.801178, -0.0282207)
+
+[node name="White flowers" type="Node3D" parent="MYWorld/MysteryIsland/Grave"]
+visible = false
+
+[node name="flowers11" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04193, 1.87404, -32.3445)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers11" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers19" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.855672, 0, -0.517519, 0, 1, 0, 0.517519, 0, 0.855672, 1.0151, 1.87404, -31.8731)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers19" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers20" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.883626, 0, 0.468192, 0, 1, 0, -0.468192, 0, 0.883626, 1.60291, 1.87404, -31.6987)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers20" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers21" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(-0.739396, 0, 0.67327, 0, 1, 0, -0.67327, 0, -0.739396, 1.43369, 1.8505, -32.7871)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers21" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0733032, 0, 0.195393)
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129219, 0, -0.0270233)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers22" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(-0.0551597, 0, 0.998477, 0, 1, 0, -0.998477, 0, -0.0551597, 1.04573, 1.8505, -32.7871)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers22" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers22" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.181343, 0, -0.214416)
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers12" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.063313, 0, -0.997994, 0, 1, 0, 0.997994, 0, 0.063313, 1.61876, 1.87404, -32.3445)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers12" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers13" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.063313, 0, -0.997994, 0, 1, 0, 0.997994, 0, 0.063313, 2.1247, 1.87404, -32.3445)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers13" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers14" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.999127, 0, 0.041771, 0, 1, 0, -0.041771, 0, 0.999127, 2.61266, 1.87404, -32.3445)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers14" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers14" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0662761, 0, -0.224396)
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers15" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.999127, 0, 0.041771, 0, 1, 0, -0.041771, 0, 0.999127, 2.61266, 1.84093, -31.842)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers15" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers15" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125208, 0, -0.526604)
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers18" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.824729, 0, -0.565529, 0, 1, 0, 0.565529, 0, 0.824729, 2.40186, 1.84093, -32.71)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers18" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers16" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(-0.483252, 0, 0.875481, 0, 1, 0, -0.875481, 0, -0.483252, 2.24617, 1.81518, -31.7354)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers16" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers17" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("40_guxkh")]
+transform = Transform3D(0.987453, 0, 0.157917, 0, 1, 0, -0.157917, 0, 0.987453, 2.42041, 1.81747, -31.7354)
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers17" index="1"]
+mesh = SubResource("ArrayMesh_88ae8")
+
+[node name="Group4" type="MeshInstance3D" parent="MYWorld/MysteryIsland/Grave/White flowers/flowers17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0906314, 0, 0.214424)
+mesh = SubResource("ArrayMesh_88ae8")
+skeleton = NodePath("")
+
+[node name="flowers-tall2" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20235, 1.62141, -32.2797)
+
+[node name="flowers-tall3" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94933, 1.62141, -32.7889)
+
+[node name="flowers-tall4" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6188, 1.52672, -32.8265)
+
+[node name="flowers-tall5" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40804, 1.52672, -31.708)
+
+[node name="flowers-tall6" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9428, 1.52672, -31.5292)
+
+[node name="flowers-tall7" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30382, 1.52672, -31.5274)
+
+[node name="flowers-tall8" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770205, 1.52672, -31.5605)
+
+[node name="flowers-tall9" parent="MYWorld/MysteryIsland/Grave/White flowers" instance=ExtResource("39_okiub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770205, 1.52672, -32.4579)
+
+[node name="column3" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.26515, -30.8018)
+
+[node name="column" parent="MYWorld/MysteryIsland/Grave/column3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_g8rqk")
+
+[node name="jewel2" parent="MYWorld/MysteryIsland/Grave/column3" instance=ExtResource("81_yrp2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98106e-05, 0.999632, 0.000106812)
+
+[node name="jewel" parent="MYWorld/MysteryIsland/Grave/column3/jewel2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5l1ey")
+
+[node name="trap-spikes2" parent="MYWorld/MysteryIsland/Grave/column3/jewel2" instance=ExtResource("82_gl83a")]
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.00404415, 0, -0.00317383)
+
+[node name="trap-spikes" parent="MYWorld/MysteryIsland/Grave/column3/jewel2/trap-spikes2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="spikes" parent="MYWorld/MysteryIsland/Grave/column3/jewel2/trap-spikes2/trap-spikes" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column3" instance=ExtResource("83_tsbid")]
+transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
+
+[node name="rotate-y" parent="MYWorld/MysteryIsland/Grave/column3/indicator-round-c2/indicator-round-c" index="0"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_r5era")
+
+[node name="AnimationPlayer" parent="MYWorld/MysteryIsland/Grave/column3/indicator-round-c2" index="1"]
+autoplay = "animation"
+
+[node name="column4" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 1.26515, -30.8018)
+
+[node name="column" parent="MYWorld/MysteryIsland/Grave/column4" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_g8rqk")
+
+[node name="jewel2" parent="MYWorld/MysteryIsland/Grave/column4" instance=ExtResource("81_yrp2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98106e-05, 0.999632, 0.000106812)
+
+[node name="jewel" parent="MYWorld/MysteryIsland/Grave/column4/jewel2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5l1ey")
+
+[node name="trap-spikes2" parent="MYWorld/MysteryIsland/Grave/column4/jewel2" instance=ExtResource("82_gl83a")]
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.00404415, 0, -0.00317383)
+
+[node name="trap-spikes" parent="MYWorld/MysteryIsland/Grave/column4/jewel2/trap-spikes2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="spikes" parent="MYWorld/MysteryIsland/Grave/column4/jewel2/trap-spikes2/trap-spikes" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column4" instance=ExtResource("83_tsbid")]
+transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
+
+[node name="rotate-y" parent="MYWorld/MysteryIsland/Grave/column4/indicator-round-c2/indicator-round-c" index="0"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_r5era")
+
+[node name="AnimationPlayer" parent="MYWorld/MysteryIsland/Grave/column4/indicator-round-c2" index="1"]
+autoplay = "animation"
+
+[node name="column5" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.247, 1.26515, -33.8018)
+
+[node name="column" parent="MYWorld/MysteryIsland/Grave/column5" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_g8rqk")
+
+[node name="jewel2" parent="MYWorld/MysteryIsland/Grave/column5" instance=ExtResource("81_yrp2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98106e-05, 0.999632, 0.000106812)
+
+[node name="jewel" parent="MYWorld/MysteryIsland/Grave/column5/jewel2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5l1ey")
+
+[node name="trap-spikes2" parent="MYWorld/MysteryIsland/Grave/column5/jewel2" instance=ExtResource("82_gl83a")]
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.00404415, 0, -0.00317383)
+
+[node name="trap-spikes" parent="MYWorld/MysteryIsland/Grave/column5/jewel2/trap-spikes2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="spikes" parent="MYWorld/MysteryIsland/Grave/column5/jewel2/trap-spikes2/trap-spikes" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column5" instance=ExtResource("83_tsbid")]
+transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
+
+[node name="rotate-y" parent="MYWorld/MysteryIsland/Grave/column5/indicator-round-c2/indicator-round-c" index="0"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_r5era")
+
+[node name="AnimationPlayer" parent="MYWorld/MysteryIsland/Grave/column5/indicator-round-c2" index="1"]
+autoplay = "animation"
+
+[node name="column6" parent="MYWorld/MysteryIsland/Grave" instance=ExtResource("70_5mcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.26515, -33.8018)
+
+[node name="column" parent="MYWorld/MysteryIsland/Grave/column6" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_g8rqk")
+
+[node name="jewel2" parent="MYWorld/MysteryIsland/Grave/column6" instance=ExtResource("81_yrp2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98106e-05, 0.999632, 0.000106812)
+
+[node name="jewel" parent="MYWorld/MysteryIsland/Grave/column6/jewel2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5l1ey")
+
+[node name="trap-spikes2" parent="MYWorld/MysteryIsland/Grave/column6/jewel2" instance=ExtResource("82_gl83a")]
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.00404415, 0, -0.00317383)
+
+[node name="trap-spikes" parent="MYWorld/MysteryIsland/Grave/column6/jewel2/trap-spikes2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="spikes" parent="MYWorld/MysteryIsland/Grave/column6/jewel2/trap-spikes2/trap-spikes" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column6" instance=ExtResource("83_tsbid")]
+transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
+
+[node name="rotate-y" parent="MYWorld/MysteryIsland/Grave/column6/indicator-round-c2/indicator-round-c" index="0"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_r5era")
+
+[node name="AnimationPlayer" parent="MYWorld/MysteryIsland/Grave/column6/indicator-round-c2" index="1"]
+autoplay = "animation"
+
+[node name="Trees" type="Node3D" parent="MYWorld/MysteryIsland"]
+
+[node name="tree2" parent="MYWorld/MysteryIsland/Trees" instance=ExtResource("45_oxsru")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.532, 1.265, -19)
+
+[node name="Group" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgpp7")
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group4" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group5" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group6" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group7" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group8" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group9" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group10" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group11" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group12" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group13" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group14" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group15" parent="MYWorld/MysteryIsland/Trees/tree2/tree" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="tree8" parent="MYWorld/MysteryIsland/Trees" instance=ExtResource("45_oxsru")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.532, 1.265, -23)
+
+[node name="Group" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgpp7")
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group4" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group5" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group6" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group7" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group8" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group9" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group10" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group11" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group12" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group13" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group14" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group15" parent="MYWorld/MysteryIsland/Trees/tree8/tree" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="tree9" parent="MYWorld/MysteryIsland/Trees" instance=ExtResource("45_oxsru")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.532, 1.265, -27)
+
+[node name="Group" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgpp7")
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group4" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group5" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group6" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group7" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group8" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group9" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group10" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group11" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group12" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group13" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group14" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group15" parent="MYWorld/MysteryIsland/Trees/tree9/tree" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="tree3" parent="MYWorld/MysteryIsland/Trees" instance=ExtResource("45_oxsru")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.35184, 1.265, -19)
+
+[node name="Group" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgpp7")
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group4" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group5" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group6" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group7" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group8" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group9" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group10" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group11" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group12" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group13" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group14" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group15" parent="MYWorld/MysteryIsland/Trees/tree3/tree" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="tree10" parent="MYWorld/MysteryIsland/Trees" instance=ExtResource("45_oxsru")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.35184, 1.265, -23)
+
+[node name="Group" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgpp7")
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group4" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group5" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group6" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group7" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group8" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group9" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group10" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group11" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group12" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group13" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group14" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group15" parent="MYWorld/MysteryIsland/Trees/tree10/tree" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="tree11" parent="MYWorld/MysteryIsland/Trees" instance=ExtResource("45_oxsru")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.35184, 1.265, -27)
+
+[node name="Group" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgpp7")
+
+[node name="Group2" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group3" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group4" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group5" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group6" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group7" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group8" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group9" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group10" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group11" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group12" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group13" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group14" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="Group15" parent="MYWorld/MysteryIsland/Trees/tree11/tree" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brpdi")
+
+[node name="BlueFlowers" type="Node3D" parent="MYWorld/MysteryIsland"]
+
+[node name="flowers" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0272, 1.26498, -33.6069)
+
+[node name="flowers2" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62533, 1.26498, -29.1107)
+
+[node name="flowers3" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25607, 1.26498, -30.9265)
+
+[node name="flowers4" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41932, 1.26498, -30.9764)
+
+[node name="flowers5" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26834, 1.26498, -28.3537)
+
+[node name="flowers6" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83737, 1.26498, -25.4211)
+
+[node name="flowers7" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43526, 1.26498, -22.4878)
+
+[node name="flowers8" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97976, 1.26498, -33.0498)
+
+[node name="flowers9" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488277, 1.26498, -32.2884)
+
+[node name="flowers10" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51521, 1.26498, -34.7093)
+
+[node name="flowers11" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76456, 1.26498, -32.0029)
+
+[node name="flowers12" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248055, 1.26498, -27.6202)
+
+[node name="flowers13" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92345, 1.26498, -28.2807)
+
+[node name="flowers14" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.276781, 1.26498, -24.7193)
+
+[node name="flowers15" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9898, 1.26498, -23.9997)
+
+[node name="flowers16" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81799, 1.26498, -22.0991)
+
+[node name="flowers17" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143098, 1.26498, -18.6527)
+
+[node name="flowers18" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85258, 1.26498, -20.0474)
+
+[node name="flowers19" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.377609, 1.26498, -16.2812)
+
+[node name="flowers20" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25448, 1.26498, -19.2614)
+
+[node name="flowers21" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36971, 1.26498, -26.0844)
+
+[node name="flowers22" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56225, 1.26498, -29.6889)
+
+[node name="flowers24" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96713, 1.26498, -26.2919)
+
+[node name="flowers25" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66395, 1.26498, -30.1229)
+
+[node name="flowers27" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.404174, 1.26498, -30.5667)
+
+[node name="flowers28" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389519, 1.23, -9.66516)
+
+[node name="flowers29" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94983, 1.24227, -10.4962)
+
+[node name="flowers23" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62623, 1.26498, -34.0421)
+
+[node name="flowers26" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33316, 1.26498, -32.1268)
+
+[node name="flowers30" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09892, 1.26498, -29.5209)
+
+[node name="flowers31" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.06916, 1.26498, -26.6278)
+
+[node name="flowers32" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51352, 1.26498, -21.0523)
+
+[node name="flowers33" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45019, 1.26498, -23.1041)
+
+[node name="flowers34" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60538, 1.26498, -30.1802)
+
+[node name="flowers35" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76508, 1.26498, -18.7516)
+
+[node name="flowers36" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47015, 1.26498, -36.0415)
+
+[node name="flowers37" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71352, 1.26498, -37.7096)
+
+[node name="flowers38" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.21736, 1.26498, -36.0987)
+
+[node name="flowers39" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56469, 1.26498, -33.2923)
+
+[node name="flowers40" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11122, 1.26498, -37.4768)
+
+[node name="flowers41" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16424, 1.26498, -36.0355)
+
+[node name="flowers42" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85742, 1.26498, -34.9046)
+
+[node name="flowers43" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09899, 1.26498, -38.1991)
+
+[node name="flowers44" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409381, 1.26498, -35.0945)
+
+[node name="flowers45" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46379, 1.26498, -36.7554)
+
+[node name="flowers46" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66292, 1.26498, -26.4553)
+
+[node name="flowers47" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5582, 1.26498, -30.1936)
+
+[node name="flowers48" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0874, 1.26498, -35.2837)
+
+[node name="flowers49" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87284, 1.26498, -23.2501)
+
+[node name="flowers50" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.83099, 1.26498, -23.23)
+
+[node name="flowers51" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86612, 1.26498, -39.248)
+
+[node name="flowers52" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63557, 1.26498, -27.4147)
+
+[node name="flowers53" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83418, 1.26498, -23.7584)
+
+[node name="flowers54" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67091, 1.26498, -21.123)
+
+[node name="flowers55" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18339, 1.26498, -20.7949)
+
+[node name="flowers56" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90726, 1.26498, -15.6653)
+
+[node name="flowers57" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78642, 1.26498, -17.1941)
+
+[node name="flowers58" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21992, 1.26498, -16.9951)
+
+[node name="flowers59" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.792393, 1.26498, -14.2104)
+
+[node name="flowers60" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3625, 1.26498, -25.5953)
+
+[node name="flowers61" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88055, 1.26498, -36.5771)
+
+[node name="flowers62" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.704, 1.26498, -32.4854)
+
+[node name="flowers63" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757059, 1.87362, -32.6203)
+visible = false
+
+[node name="flowers64" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49314, 1.87362, -31.8653)
+visible = false
+
+[node name="flowers65" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.945323, 1.81153, -31.8653)
+visible = false
+
+[node name="flowers66" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91526, 1.8222, -32.612)
+visible = false
+
+[node name="flowers67" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91526, 1.87257, -31.6058)
+visible = false
+
+[node name="flowers68" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.484979, 1.80976, -31.654)
+visible = false
+
+[node name="flowers69" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60925, 1.80976, -32.6205)
+visible = false
+
+[node name="flowers70" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.505124, 1.80976, -32.4104)
+visible = false
+
+[node name="flowers71" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33295, 1.80976, -32.4104)
+visible = false
+
+[node name="flowers72" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64535, 1.87362, -31.9247)
+visible = false
+
+[node name="flowers73" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45922, 1.87362, -32.678)
+visible = false
+
+[node name="flowers74" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.595744, 1.82875, -32.678)
+visible = false
+
+[node name="flowers75" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33325, 1.82875, -31.5693)
+visible = false
+
+[node name="flowers76" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57336, 1.87362, -32.678)
+visible = false
+
+[node name="flowers77" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57336, 1.87362, -31.678)
+visible = false
+
+[node name="FireFlies" parent="MYWorld/MysteryIsland" instance=ExtResource("78_ihred")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18264, 1.71884, -25.227)
+
 [node name="Lighthouse" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.1292, 16.7431, 26.8536)
 
@@ -2806,6 +3960,7 @@ transform = Transform3D(-4.37114e-09, -0.01, 0, 0.1, -4.37114e-10, 0, 0, 0, 0.1,
 
 [node name="shape-cylinder-detailed" parent="Lighthouse/Light/shape-cylinder-detailed2" index="0"]
 transform = Transform3D(1, 8.88178e-16, 0, 8.52651e-14, 1, 0, 0, 0, 1, 0, 0.439087, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_e80jt")
 
 [node name="Armature" type="Node3D" parent="Lighthouse"]
 
@@ -2863,7 +4018,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jskdn")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 26.8847, 9.1457, 19.7491)
 
 [node name="door" parent="." instance=ExtResource("13_2py5d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.150875, 5.81515, -62.9523)
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0.825779, 6.01827, -62.9523)
 look_at_door_when_opens = true
 open_door_with_coins = 40
 
@@ -2950,6 +4105,43 @@ transform = Transform3D(-1.66667, -1.88214e-22, 3.64262e-08, -4.37114e-07, -2.18
 [editable path="MYWorld/Lamps/Lamp9"]
 [editable path="MYWorld/Lamps/Lamp9/pipe2"]
 [editable path="MYWorld/Lamps/Lamp9/weapon-shield2"]
+[editable path="MYWorld/MysteryIsland/Grave/floor-thick2"]
+[editable path="MYWorld/MysteryIsland/Grave/floor-thick3"]
+[editable path="MYWorld/MysteryIsland/Grave/character"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers11"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers19"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers20"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers21"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers22"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers12"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers13"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers14"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers15"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers18"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers16"]
+[editable path="MYWorld/MysteryIsland/Grave/White flowers/flowers17"]
+[editable path="MYWorld/MysteryIsland/Grave/column3"]
+[editable path="MYWorld/MysteryIsland/Grave/column3/jewel2"]
+[editable path="MYWorld/MysteryIsland/Grave/column3/jewel2/trap-spikes2"]
+[editable path="MYWorld/MysteryIsland/Grave/column3/indicator-round-c2"]
+[editable path="MYWorld/MysteryIsland/Grave/column4"]
+[editable path="MYWorld/MysteryIsland/Grave/column4/jewel2"]
+[editable path="MYWorld/MysteryIsland/Grave/column4/jewel2/trap-spikes2"]
+[editable path="MYWorld/MysteryIsland/Grave/column4/indicator-round-c2"]
+[editable path="MYWorld/MysteryIsland/Grave/column5"]
+[editable path="MYWorld/MysteryIsland/Grave/column5/jewel2"]
+[editable path="MYWorld/MysteryIsland/Grave/column5/jewel2/trap-spikes2"]
+[editable path="MYWorld/MysteryIsland/Grave/column5/indicator-round-c2"]
+[editable path="MYWorld/MysteryIsland/Grave/column6"]
+[editable path="MYWorld/MysteryIsland/Grave/column6/jewel2"]
+[editable path="MYWorld/MysteryIsland/Grave/column6/jewel2/trap-spikes2"]
+[editable path="MYWorld/MysteryIsland/Grave/column6/indicator-round-c2"]
+[editable path="MYWorld/MysteryIsland/Trees/tree2"]
+[editable path="MYWorld/MysteryIsland/Trees/tree8"]
+[editable path="MYWorld/MysteryIsland/Trees/tree9"]
+[editable path="MYWorld/MysteryIsland/Trees/tree3"]
+[editable path="MYWorld/MysteryIsland/Trees/tree10"]
+[editable path="MYWorld/MysteryIsland/Trees/tree11"]
 [editable path="Lighthouse/Cylinder/shape-hollow-cylinder-detailed3"]
 [editable path="Lighthouse/Cylinder/shape-hollow-cylinder-detailed4"]
 [editable path="Lighthouse/Cylinder/shape-hollow-cylinder-detailed5"]

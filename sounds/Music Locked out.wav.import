@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jrx1ucw2vfdv"
+path="res://.godot/imported/Music Locked out.wav-fc04df0e0e562ef39dee12b6e34d5483.sample"
+
+[deps]
+
+source_file="res://sounds/Music Locked out.wav"
+dest_files=["res://.godot/imported/Music Locked out.wav-fc04df0e0e562ef39dee12b6e34d5483.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

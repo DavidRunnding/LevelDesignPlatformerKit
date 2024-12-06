@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://3l7067vpqroh"]
+
+[ext_resource type="PackedScene" uid="uid://dmequtx2oso1f" path="res://models/props/rocks.glb" id="1_51mhb"]
+[ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="2_ixi4a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usxc4"]
+albedo_texture = ExtResource("2_ixi4a")
+emission_enabled = true
+emission = Color(0.00995267, 0.238803, 0.999991, 1)
+emission_energy_multiplier = 16.0
+
+[node name="rocks2" instance=ExtResource("1_51mhb")]
+
+[node name="rocks" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_usxc4")
