@@ -54,7 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://bprrlrsrodjse" path="res://objects/saw.tscn" id="42_xdkt4"]
 [ext_resource type="PackedScene" uid="uid://cuwvtme7bq62l" path="res://objects/pipe_half_section.tscn" id="43_sylu2"]
 [ext_resource type="PackedScene" uid="uid://da81opy2uyo7u" path="res://objects/tree_2.tscn" id="45_oxsru"]
-[ext_resource type="PackedScene" path="res://objects/trampoline.tscn" id="45_rdvem"]
+[ext_resource type="PackedScene" uid="uid://ytqajrdi7fqj" path="res://objects/trampoline.tscn" id="45_rdvem"]
 [ext_resource type="PackedScene" uid="uid://dgwnhphsmk556" path="res://models/props/barrel.glb" id="45_yxpqo"]
 [ext_resource type="PackedScene" uid="uid://bd8itfyp6bgw" path="res://models/prototyping/models/column.glb" id="51_a0qan"]
 [ext_resource type="PackedScene" uid="uid://qrisp0u0eidp" path="res://models/props/arrows.glb" id="55_1gbpf"]
