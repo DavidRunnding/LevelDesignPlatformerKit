@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/music_zapsplat_a_moment_forever.mp3-0cbf22d5c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

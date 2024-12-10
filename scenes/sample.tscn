@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=4 uid="uid://e6jwbml72r4o"]
+[gd_scene load_steps=151 format=4 uid="uid://e6jwbml72r4o"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_apxki"]
 [ext_resource type="AudioStream" uid="uid://cvalonb3jfmqj" path="res://sounds/music_zapsplat_a_moment_forever.mp3" id="1_qjy53"]
@@ -118,6 +118,13 @@ shadow_offset = Vector2(2, 2)
 [sub_resource type="Curve3D" id="Curve3D_wookv"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.77234, 5.77971, -59.8967, 0, 0, 0, 0, 0, 0, 3.04235, 5.95152, -6.64477),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_to20b"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.08746, 5.91486, -6.87853, 0, 0, 0, 0, 0, 0, -1.245, 5.78, -59.176),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -272,9 +279,10 @@ _data = {
 point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjj3s"]
-albedo_color = Color(0.750941, 0.743506, 0.745358, 0.901961)
+albedo_color = Color(0.74902, 0.741176, 0.745098, 0.901961)
 metallic = 0.4
 roughness = 0.33
+uv1_offset = Vector3(7.45, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr00v"]
 transparency = 1
@@ -652,6 +660,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90458, 5.45692, -56.3927)
 [node name="moving_object_path" parent="MYWorld" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
 curve = SubResource("Curve3D_wookv")
 object_to_move = NodePath("../platform-moving")
+movement_speed = 2.5
+ping_pong = true
+
+[node name="platform-moving2" parent="MYWorld" instance=ExtResource("18_4plyt")]
+
+[node name="moving_object_path2" parent="MYWorld" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_to20b")
+object_to_move = NodePath("../platform-moving2")
 movement_speed = 2.5
 ping_pong = true
 
@@ -1653,6 +1669,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86391, 6.01352, 2.45197)
 
 [node name="trampoline" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("45_rdvem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46199, 6.01352, 2.61352)
+trampoline_strength = 15.0
 
 [node name="CaveLevel" type="Node3D" parent="MYWorld"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 10.1079, -118.056)
@@ -2494,10 +2511,10 @@ ping_pong = true
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 15.6309, 9.65643, 27.55)
 
 [node name="checkpoint2" parent="MYWorld/MountainLevel" instance=ExtResource("20_b7drk")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 29.88, 12.3844, 25.4041)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 29.88, 12.7443, 25.4041)
 
 [node name="checkpoint3" parent="MYWorld/MountainLevel" instance=ExtResource("20_b7drk")]
-transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 38.9003, 12.9155, 31.5961)
+transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 38.9003, 13.2086, 31.5961)
 
 [node name="button" parent="MYWorld/MountainLevel" node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
 transform = Transform3D(1, 0, 0.000366519, 0, 1, 0, -0.000366519, 0, 1, 39.1723, 16.228, 35.7359)
@@ -2869,7 +2886,7 @@ transform = Transform3D(-3.28559, 0, 2.28142, 0, 3, 0, -2.28142, 0, -3.28559, 1.
 [node name="Mountain bottom" type="Node3D" parent="MYWorld/MysteryIsland"]
 
 [node name="rocks2" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
-transform = Transform3D(17.5075, 0, 17.8462, 0, 25, 0, -17.8462, 0, 17.5075, -13.04, 1.42997, -11.088)
+transform = Transform3D(17.5075, 0, 17.8462, 0, 25, 0, -17.8462, 0, 17.5075, -12.5868, 1.42997, -11.088)
 
 [node name="rocks3" parent="MYWorld/MysteryIsland/Mountain bottom" instance=ExtResource("33_qj4uo")]
 transform = Transform3D(-7.36352, 0, -23.891, 0, 25, 0, 23.891, 0, -7.36352, -11.7787, 1.42997, -16.5259)
@@ -3248,6 +3265,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
 [node name="spikes" parent="MYWorld/MysteryIsland/Grave/column3/jewel2/trap-spikes2/trap-spikes" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="MYWorld/MysteryIsland/Grave/column3/jewel2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.197641, 0)
+light_color = Color(0.113725, 0.298039, 1, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+
 [node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column3" instance=ExtResource("83_tsbid")]
 transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
 
@@ -3278,6 +3303,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
 
 [node name="spikes" parent="MYWorld/MysteryIsland/Grave/column4/jewel2/trap-spikes2/trap-spikes" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MYWorld/MysteryIsland/Grave/column4/jewel2"]
+light_color = Color(0.113725, 0.298039, 1, 1)
 
 [node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column4" instance=ExtResource("83_tsbid")]
 transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
@@ -3310,6 +3338,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
 [node name="spikes" parent="MYWorld/MysteryIsland/Grave/column5/jewel2/trap-spikes2/trap-spikes" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="MYWorld/MysteryIsland/Grave/column5/jewel2"]
+light_color = Color(0.113725, 0.298039, 1, 1)
+
 [node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column5" instance=ExtResource("83_tsbid")]
 transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
 
@@ -3340,6 +3371,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
 
 [node name="spikes" parent="MYWorld/MysteryIsland/Grave/column6/jewel2/trap-spikes2/trap-spikes" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hkfsc")
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="MYWorld/MysteryIsland/Grave/column6/jewel2"]
+light_color = Color(0.113725, 0.298039, 1, 1)
 
 [node name="indicator-round-c2" parent="MYWorld/MysteryIsland/Grave/column6" instance=ExtResource("83_tsbid")]
 transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0.000174314, 1.1818, 0.00354004)
@@ -3721,9 +3755,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.404174, 1.26498, -30.5667)
 [node name="flowers28" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389519, 1.23, -9.66516)
 
-[node name="flowers29" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("74_eud7c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94983, 1.24227, -10.4962)
-
 [node name="flowers23" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62623, 1.26498, -34.0421)
 
@@ -3764,7 +3795,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56469, 1.26498, -33.2923)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11122, 1.26498, -37.4768)
 
 [node name="flowers41" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16424, 1.26498, -36.0355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.904456, 1.26498, -36.0355)
 
 [node name="flowers42" parent="MYWorld/MysteryIsland/BlueFlowers" instance=ExtResource("83_dfdlb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85742, 1.26498, -34.9046)
@@ -3892,6 +3923,9 @@ visible = false
 [node name="FireFlies" parent="MYWorld/MysteryIsland" instance=ExtResource("78_ihred")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18264, 1.71884, -25.227)
 
+[node name="flag" parent="MYWorld/MysteryIsland" instance=ExtResource("7_dhnka")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 1.58985, 1.26502, -36.2493)
+
 [node name="Lighthouse" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.1292, 16.7431, 26.8536)
 
@@ -3902,18 +3936,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.197259, 0)
 transform = Transform3D(1.25, 0, 0, 0, 0.5, 0, 0, 0, 1.25, -0.0496874, 0.188805, 0.107591)
 
 [node name="shape-hollow-cylinder-detailed" parent="Lighthouse/Cylinder/shape-hollow-cylinder-detailed3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0514259, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_rxhd3")
 
 [node name="shape-hollow-cylinder-detailed4" parent="Lighthouse/Cylinder" instance=ExtResource("58_afbl2")]
 transform = Transform3D(1.25, 0, 0, 0, 0.5, 0, 0, 0, 1.25, -0.0496874, 0.67955, 0.107591)
 
 [node name="shape-hollow-cylinder-detailed" parent="Lighthouse/Cylinder/shape-hollow-cylinder-detailed4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0321903, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_72d5k")
 
 [node name="shape-hollow-cylinder-detailed5" parent="Lighthouse/Cylinder" instance=ExtResource("58_afbl2")]
 transform = Transform3D(1.25, 0, 0, 0, 0.5, 0, 0, 0, 1.25, -0.0496874, 1.17999, 0.107591)
 
 [node name="shape-hollow-cylinder-detailed" parent="Lighthouse/Cylinder/shape-hollow-cylinder-detailed5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0308094, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_qhlws")
 
 [node name="shape-hollow-cylinder-detailed6" parent="Lighthouse/Cylinder" instance=ExtResource("58_afbl2")]
@@ -4071,6 +4108,7 @@ transform = Transform3D(-1.66667, -1.88214e-22, 3.64262e-08, -4.37114e-07, -2.18
 [editable path="MYWorld/CaveLevel/Guard2/figurine-large/root/torso/target-a-round2"]
 [editable path="MYWorld/CaveLevel/stairs-small-narrow2/shape-slope2"]
 [editable path="MYWorld/MountainLevel/Pipes/pipe-corner3"]
+[editable path="MYWorld/MountainLevel/platform-moving"]
 [editable path="MYWorld/Lamps/Lamp"]
 [editable path="MYWorld/Lamps/Lamp/pipe2"]
 [editable path="MYWorld/Lamps/Lamp/weapon-shield2"]

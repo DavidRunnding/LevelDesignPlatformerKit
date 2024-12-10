@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=4 uid="uid://by00y5dpx71l1"]
+
+[ext_resource type="Texture2D" uid="uid://bvj25ii6y01ic" path="res://models/prototyping/models/Textures/colormap.png" id="1_0fflg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hm1f"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_0fflg")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1x0f8"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.2, 1),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABAAAAAIAAgAFAAQABAAGAAEAAQAAAAQABwAGAAQABAAFAAcABwADAAEAAQAGAAcAAgADAAcABwAFAAIA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAAAA//8AAAAA/////wAAAAAAAAAA//8AAAAA/////wAA//8AAP//AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d6ylc"]
+resource_name = "floor-thick_floor-thick"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.2, 1),
+"attribute_data": PackedByteArray("/3eY+f93mPn/d2XG/3dlxv93mPn/d2XG/3eY+f93Zcb/d5j5/3eY+f93mPn/d5j5/3eY+f93mPn/d2XG/3dlxv93Zcb/d5j5/3dlxv93mPn/d2XG/3dlxv93Zcb/d2XG"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFgAUABUAFQAXABYA"),
+"material": SubResource("StandardMaterial3D_6hm1f"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAAAAD//wAA//8AAP///////wAA//8AAAAAAAD/vwAA//8AAP+/AAAAAP///78AAP//////v///AAD///+///8AAAAA/78AAAAA////vwAAAAAAAP+///8AAP//AIAAAAAA//8AgP///////wCAAAD/////AID/////AAD/v///AAAAAP+//////////7///wAA////v/////8AAP////////////8AAP//AAD//wAA/////////3////9/////f////3////9/////f////3////9///8AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1x0f8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjj3s"]
+albedo_color = Color(0.74902, 0.529412, 0.254902, 0.901961)
+metallic = 0.69
+roughness = 0.27
+emission_enabled = true
+emission = Color(0.560784, 0.396078, 0, 1)
+emission_energy_multiplier = 10.55
+uv1_offset = Vector3(7.45, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4vai8"]
+size = Vector3(1, 0.210205, 1)
+
+[node name="floor-thick2" type="MeshInstance3D"]
+transform = Transform3D(0.93, 0, 0, 0, 0.02, 0, 0, 0, 0.94, 0, 0.199382, 0)
+mesh = SubResource("ArrayMesh_d6ylc")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_vjj3s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0977783, 0)
+shape = SubResource("BoxShape3D_4vai8")
