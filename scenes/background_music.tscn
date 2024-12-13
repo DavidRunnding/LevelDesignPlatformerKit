@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8n046j8aiwfh"]
+
+[ext_resource type="AudioStream" uid="uid://cvalonb3jfmqj" path="res://sounds/music_zapsplat_a_moment_forever.mp3" id="1_77og0"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D"]
+process_mode = 3
+stream = ExtResource("1_77og0")
+attenuation_model = 3
+volume_db = -20.0
+autoplay = true

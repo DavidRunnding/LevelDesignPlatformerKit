@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://db10ouchiy142"]
+[gd_scene load_steps=5 format=3 uid="uid://db10ouchiy142"]
 
 [ext_resource type="PackedScene" uid="uid://ct3jqgtvmr86q" path="res://models/props/block-grass-large.glb" id="1_tuj0d"]
+[ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="2_uk5yp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g34c"]
+albedo_texture = ExtResource("2_uk5yp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpb3w"]
 size = Vector3(2.00695, 0.992798, 1.99451)
 
 [node name="block-grass-large2" instance=ExtResource("1_tuj0d")]
+
+[node name="block-grass-large" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8g34c")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="block-grass-large" index="0"]
 

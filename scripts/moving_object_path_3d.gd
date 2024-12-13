@@ -8,6 +8,7 @@ extends Path3D
 @export var is_on_from_start : bool = true
 @export var look_at_object_when_activated : bool
 @export var ping_pong : bool
+@export var do_once : bool = false
 
 var original_object_pos : Vector3
 var direction : float = 1
@@ -33,8 +34,11 @@ func _process(delta: float) -> void:
 					direction = -1
 				if path_follow_3d.progress_ratio < 0.01:
 					direction = 1
-
-			path_follow_3d.progress += (delta*movement_speed*direction)
+			if do_once:
+				if path_follow_3d.progress_ratio < 0.95:
+					path_follow_3d.progress += (delta*movement_speed*direction)
+			else:
+				path_follow_3d.progress += (delta*movement_speed*direction)
 
 	if Engine.is_editor_hint() and global_position != Vector3.ZERO:
 		global_position = Vector3.ZERO
