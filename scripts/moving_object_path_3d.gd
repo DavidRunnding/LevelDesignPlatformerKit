@@ -29,13 +29,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
 		if object_to_move and is_on_from_start:
+			
+			
+			
 			if ping_pong:
 				if path_follow_3d.progress_ratio > 0.99:
 					direction = -1
 				if path_follow_3d.progress_ratio < 0.01:
 					direction = 1
 			if do_once:
-				if path_follow_3d.progress_ratio < 0.95:
+				if path_follow_3d.progress_ratio < 0.99:
 					path_follow_3d.progress += (delta*movement_speed*direction)
 			else:
 				path_follow_3d.progress += (delta*movement_speed*direction)

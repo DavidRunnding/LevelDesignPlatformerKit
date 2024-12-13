@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=4 uid="uid://e6jwbml72r4o"]
+[gd_scene load_steps=161 format=4 uid="uid://e6jwbml72r4o"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_apxki"]
 [ext_resource type="AudioStream" uid="uid://1j73f5g6kinm" path="res://sounds/Waves.wav" id="2_6bith"]
@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://da81opy2uyo7u" path="res://objects/tree_2.tscn" id="45_oxsru"]
 [ext_resource type="PackedScene" path="res://objects/trampoline.tscn" id="45_rdvem"]
 [ext_resource type="PackedScene" uid="uid://dgwnhphsmk556" path="res://models/props/barrel.glb" id="45_yxpqo"]
+[ext_resource type="Texture2D" uid="uid://0odt7cvj574e" path="res://models/core_models/Textures/colormap.png" id="48_u4vux"]
 [ext_resource type="PackedScene" uid="uid://bd8itfyp6bgw" path="res://models/prototyping/models/column.glb" id="51_a0qan"]
 [ext_resource type="PackedScene" uid="uid://qrisp0u0eidp" path="res://models/props/arrows.glb" id="55_1gbpf"]
 [ext_resource type="PackedScene" uid="uid://dl53crwp6t88q" path="res://objects/lamp.tscn" id="55_wkcds"]
@@ -83,6 +84,9 @@
 [ext_resource type="PackedScene" uid="uid://dmg3eddclu4p3" path="res://models/props/trap-spikes.glb" id="82_gl83a"]
 [ext_resource type="PackedScene" uid="uid://djkqbhp8eha2y" path="res://objects/LightFlower.tscn" id="83_dfdlb"]
 [ext_resource type="PackedScene" uid="uid://rwa218730lgk" path="res://models/prototyping/models/indicator-round-c.glb" id="83_tsbid"]
+[ext_resource type="PackedScene" uid="uid://ddrnowfyucm6d" path="res://objects/stone_bridge.tscn" id="84_3t4ny"]
+[ext_resource type="PackedScene" uid="uid://b8d1oe5olis7n" path="res://models/props/stones.glb" id="85_kobir"]
+[ext_resource type="PackedScene" uid="uid://bca4l5fdc13un" path="res://models/props/fence-broken.glb" id="86_lbke5"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
 auto_exposure_scale = 0.75
@@ -112,20 +116,6 @@ font = ExtResource("25_vfu23")
 font_size = 42
 shadow_color = Color(0, 0, 0, 0.376471)
 shadow_offset = Vector2(2, 2)
-
-[sub_resource type="Curve3D" id="Curve3D_wookv"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.77234, 5.77971, -59.8967, 0, 0, 0, 0, 0, 0, 3.04235, 5.95152, -6.64477),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve3D" id="Curve3D_to20b"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.08746, 5.91486, -6.87853, 0, 0, 0, 0, 0, 0, -1.245, 5.78, -59.176),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52fuk"]
 albedo_color = Color(1, 0.572549, 0.121569, 1)
@@ -228,6 +218,20 @@ data = PackedVector3Array(-0.2, 0.4134, 0.1732, -0.15, 0.3268, 0.1732, -0.2, 0.3
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qfb3s"]
 data = PackedVector3Array(0, 0.4762, -0.1302, 0, 0.3977, -0.1068, -0.0755, 0.3977, -0.0755, -0.0755, 0.3977, -0.0755, -0.0921, 0.4762, -0.0921, 0, 0.4762, -0.1302, 0.0755, 0.3977, -0.0755, 0.092, 0.4762, -0.0921, 0.1302, 0.4762, 0, 0.1302, 0.4762, 0, 0.1067, 0.3977, 0, 0.0755, 0.3977, -0.0755, -0.0921, 0.4762, 0.092, -0.0755, 0.3977, 0.0755, 0, 0.3977, 0.1067, 0, 0.3977, 0.1067, 0, 0.4762, 0.1302, -0.0921, 0.4762, 0.092, 0, 0.1389, 0.2439, 0, 0, 0.1952, -0.138, 0, 0.138, -0.138, 0, 0.138, -0.1725, 0.1389, 0.1725, 0, 0.1389, 0.2439, 0.1067, 0.3977, 0, 0.1302, 0.4762, 0, 0.092, 0.4762, 0.092, 0.092, 0.4762, 0.092, 0.0755, 0.3977, 0.0755, 0.1067, 0.3977, 0, 0.138, 0.4762, 0.138, 0.1952, 0.4762, 0, 0.2439, 0.3373, 0, 0.2439, 0.3373, 0, 0.1725, 0.3373, 0.1725, 0.138, 0.4762, 0.138, -0.0921, 0.4762, 0.092, -0.1302, 0.4762, 0, -0.1068, 0.3977, 0, -0.1068, 0.3977, 0, -0.0755, 0.3977, 0.0755, -0.0921, 0.4762, 0.092, 0.0755, 0.3977, -0.0755, 0.1067, 0.3977, 0, 0.0755, 0.3977, 0.0755, 0.0755, 0.3977, 0.0755, 0, 0.3977, -0.1068, 0.0755, 0.3977, -0.0755, 0.0755, 0.3977, 0.0755, 0, 0.3977, 0.1067, 0, 0.3977, -0.1068, 0, 0.3977, 0.1067, -0.0755, 0.3977, -0.0755, 0, 0.3977, -0.1068, 0, 0.3977, 0.1067, -0.0755, 0.3977, 0.0755, -0.0755, 0.3977, -0.0755, -0.0755, 0.3977, 0.0755, -0.1068, 0.3977, 0, -0.0755, 0.3977, -0.0755, 0.138, 0.4762, -0.138, 0.1725, 0.3373, -0.1725, 0.2439, 0.3373, 0, 0.2439, 0.3373, 0, 0.1952, 0.4762, 0, 0.138, 0.4762, -0.138, 0.2439, 0.3373, 0, 0.1725, 0.3373, -0.1725, 0.1725, 0.1389, -0.1725, 0.1725, 0.1389, -0.1725, 0.2439, 0.1389, 0, 0.2439, 0.3373, 0, -0.244, 0.1389, 0, -0.1725, 0.1389, -0.1725, -0.1725, 0.3373, -0.1725, -0.1725, 0.3373, -0.1725, -0.244, 0.3373, 0, -0.244, 0.1389, 0, -0.1725, 0.1389, -0.1725, -0.138, 0, -0.138, 0, 0, -0.1952, 0, 0, -0.1952, 0, 0.1389, -0.244, -0.1725, 0.1389, -0.1725, -0.1725, 0.1389, 0.1725, -0.244, 0.1389, 0, -0.244, 0.3373, 0, -0.244, 0.3373, 0, -0.1725, 0.3373, 0.1725, -0.1725, 0.1389, 0.1725, 0, 0.4762, -0.1952, 0, 0.3373, -0.244, 0.1725, 0.3373, -0.1725, 0.1725, 0.3373, -0.1725, 0.138, 0.4762, -0.138, 0, 0.4762, -0.1952, 0.138, 0.4762, 0.138, 0.1725, 0.3373, 0.1725, 0, 0.3373, 0.2439, 0, 0.3373, 0.2439, 0, 0.4762, 0.1952, 0.138, 0.4762, 0.138, -0.1725, 0.3373, 0.1725, -0.244, 0.3373, 0, -0.1952, 0.4762, 0, -0.1952, 0.4762, 0, -0.138, 0.4762, 0.138, -0.1725, 0.3373, 0.1725, -0.138, 0.4762, -0.138, -0.1725, 0.3373, -0.1725, 0, 0.3373, -0.244, 0, 0.3373, -0.244, 0, 0.4762, -0.1952, -0.138, 0.4762, -0.138, 0, 0.3373, -0.244, 0, 0.1389, -0.244, 0.1725, 0.1389, -0.1725, 0.1725, 0.1389, -0.1725, 0.1725, 0.3373, -0.1725, 0, 0.3373, -0.244, -0.1302, 0.4762, 0, -0.0921, 0.4762, -0.0921, -0.0755, 0.3977, -0.0755, -0.0755, 0.3977, -0.0755, -0.1068, 0.3977, 0, -0.1302, 0.4762, 0, 0.1725, 0.1389, 0.1725, 0.138, 0, 0.138, 0, 0, 0.1952, 0, 0, 0.1952, 0, 0.1389, 0.2439, 0.1725, 0.1389, 0.1725, 0, 0.1389, -0.244, 0, 0, -0.1952, 0.138, 0, -0.138, 0.138, 0, -0.138, 0.1725, 0.1389, -0.1725, 0, 0.1389, -0.244, 0.138, 0.4762, -0.138, 0.1952, 0.4762, 0, 0.138, 0.4762, 0.138, 0.138, 0.4762, 0.138, 0.1302, 0.4762, 0, 0.138, 0.4762, -0.138, 0.1302, 0.4762, 0, 0.092, 0.4762, -0.0921, 0.138, 0.4762, -0.138, 0.092, 0.4762, 0.092, 0.1302, 0.4762, 0, 0.138, 0.4762, 0.138, 0.092, 0.4762, -0.0921, 0, 0.4762, -0.1952, 0.138, 0.4762, -0.138, 0.092, 0.4762, -0.0921, 0, 0.4762, -0.1302, 0, 0.4762, -0.1952, 0.138, 0.4762, 0.138, 0, 0.4762, 0.1952, 0.092, 0.4762, 0.092, 0, 0.4762, 0.1952, 0, 0.4762, 0.1302, 0.092, 0.4762, 0.092, 0, 0.4762, 0.1952, -0.0921, 0.4762, 0.092, 0, 0.4762, 0.1302, 0, 0.4762, -0.1302, -0.138, 0.4762, -0.138, 0, 0.4762, -0.1952, 0, 0.4762, 0.1952, -0.138, 0.4762, 0.138, -0.0921, 0.4762, 0.092, 0, 0.4762, -0.1302, -0.0921, 0.4762, -0.0921, -0.138, 0.4762, -0.138, -0.138, 0.4762, 0.138, -0.1302, 0.4762, 0, -0.0921, 0.4762, 0.092, -0.0921, 0.4762, -0.0921, -0.1302, 0.4762, 0, -0.138, 0.4762, -0.138, -0.138, 0.4762, 0.138, -0.138, 0.4762, -0.138, -0.1302, 0.4762, 0, -0.138, 0.4762, 0.138, -0.1952, 0.4762, 0, -0.138, 0.4762, -0.138, 0, 0.4762, 0.1302, 0, 0.3977, 0.1067, 0.0755, 0.3977, 0.0755, 0.0755, 0.3977, 0.0755, 0.092, 0.4762, 0.092, 0, 0.4762, 0.1302, 0, 0.4762, 0.1952, 0, 0.3373, 0.2439, -0.1725, 0.3373, 0.1725, -0.1725, 0.3373, 0.1725, -0.138, 0.4762, 0.138, 0, 0.4762, 0.1952, -0.1725, 0.3373, -0.1725, -0.1725, 0.1389, -0.1725, 0, 0.1389, -0.244, 0, 0.1389, -0.244, 0, 0.3373, -0.244, -0.1725, 0.3373, -0.1725, -0.138, 0, 0.138, -0.1952, 0, 0, -0.244, 0.1389, 0, -0.244, 0.1389, 0, -0.1725, 0.1389, 0.1725, -0.138, 0, 0.138, 0.1725, 0.1389, 0.1725, 0.2439, 0.1389, 0, 0.1952, 0, 0, 0.1952, 0, 0, 0.138, 0, 0.138, 0.1725, 0.1389, 0.1725, 0, 0.3373, 0.2439, 0, 0.1389, 0.2439, -0.1725, 0.1389, 0.1725, -0.1725, 0.1389, 0.1725, -0.1725, 0.3373, 0.1725, 0, 0.3373, 0.2439, 0.138, 0, 0.138, 0.1952, 0, 0, 0.138, 0, -0.138, 0.138, 0, -0.138, 0, 0, 0.1952, 0.138, 0, 0.138, 0.138, 0, -0.138, 0, 0, -0.1952, 0, 0, 0.1952, 0, 0, -0.1952, -0.138, 0, 0.138, 0, 0, 0.1952, 0, 0, -0.1952, -0.138, 0, -0.138, -0.138, 0, 0.138, -0.138, 0, -0.138, -0.1952, 0, 0, -0.138, 0, 0.138, -0.244, 0.3373, 0, -0.1725, 0.3373, -0.1725, -0.138, 0.4762, -0.138, -0.138, 0.4762, -0.138, -0.1952, 0.4762, 0, -0.244, 0.3373, 0, 0.2439, 0.1389, 0, 0.1725, 0.1389, -0.1725, 0.138, 0, -0.138, 0.138, 0, -0.138, 0.1952, 0, 0, 0.2439, 0.1389, 0, -0.138, 0, -0.138, -0.1725, 0.1389, -0.1725, -0.244, 0.1389, 0, -0.244, 0.1389, 0, -0.1952, 0, 0, -0.138, 0, -0.138, 0.1725, 0.3373, 0.1725, 0.2439, 0.3373, 0, 0.2439, 0.1389, 0, 0.2439, 0.1389, 0, 0.1725, 0.1389, 0.1725, 0.1725, 0.3373, 0.1725, 0.1725, 0.3373, 0.1725, 0.1725, 0.1389, 0.1725, 0, 0.1389, 0.2439, 0, 0.1389, 0.2439, 0, 0.3373, 0.2439, 0.1725, 0.3373, 0.1725, 0.092, 0.4762, -0.0921, 0.0755, 0.3977, -0.0755, 0, 0.3977, -0.1068, 0, 0.3977, -0.1068, 0, 0.4762, -0.1302, 0.092, 0.4762, -0.0921, -0.183, 0.3821, -0.183, -0.183, 0.2861, -0.183, 0, 0.2861, -0.2588, 0, 0.2861, -0.2588, 0, 0.3821, -0.2588, -0.183, 0.3821, -0.183, 0, 0.3821, -0.2588, 0, 0.2861, -0.2588, 0.183, 0.2861, -0.183, 0.183, 0.2861, -0.183, 0.183, 0.3821, -0.183, 0, 0.3821, -0.2588, -0.183, 0.2861, 0.183, -0.2588, 0.2861, 0, -0.2588, 0.3821, 0, -0.2588, 0.3821, 0, -0.183, 0.3821, 0.183, -0.183, 0.2861, 0.183, 0.183, 0.094, 0.183, 0.2588, 0.094, 0, 0.183, 0.094, -0.183, 0.183, 0.094, -0.183, 0, 0.094, 0.2588, 0.183, 0.094, 0.183, 0.183, 0.094, -0.183, 0, 0.094, -0.2588, 0, 0.094, 0.2588, 0, 0.094, -0.2588, -0.183, 0.094, 0.183, 0, 0.094, 0.2588, 0, 0.094, -0.2588, -0.183, 0.094, -0.183, -0.183, 0.094, 0.183, -0.183, 0.094, -0.183, -0.2588, 0.094, 0, -0.183, 0.094, 0.183, -0.2588, 0.2861, 0, -0.183, 0.2861, -0.183, -0.183, 0.3821, -0.183, -0.183, 0.3821, -0.183, -0.2588, 0.3821, 0, -0.2588, 0.2861, 0, 0.183, 0.3821, 0.183, 0.183, 0.2861, 0.183, 0, 0.2861, 0.2588, 0, 0.2861, 0.2588, 0, 0.3821, 0.2588, 0.183, 0.3821, 0.183, 0.183, 0.1901, -0.183, 0.2588, 0.1901, 0, 0.183, 0.1901, 0.183, 0.183, 0.1901, 0.183, 0, 0.1901, -0.2588, 0.183, 0.1901, -0.183, 0.183, 0.1901, 0.183, 0, 0.1901, 0.2588, 0, 0.1901, -0.2588, 0, 0.1901, 0.2588, -0.183, 0.1901, -0.183, 0, 0.1901, -0.2588, 0, 0.1901, 0.2588, -0.183, 0.1901, 0.183, -0.183, 0.1901, -0.183, -0.183, 0.1901, 0.183, -0.2588, 0.1901, 0, -0.183, 0.1901, -0.183, 0, 0.3821, 0.2588, 0, 0.2861, 0.2588, -0.183, 0.2861, 0.183, -0.183, 0.2861, 0.183, -0.183, 0.3821, 0.183, 0, 0.3821, 0.2588, -0.183, 0.094, 0.183, -0.2588, 0.094, 0, -0.2588, 0.1901, 0, -0.2588, 0.1901, 0, -0.183, 0.1901, 0.183, -0.183, 0.094, 0.183, 0.183, 0.1901, 0.183, 0.183, 0.094, 0.183, 0, 0.094, 0.2588, 0, 0.094, 0.2588, 0, 0.1901, 0.2588, 0.183, 0.1901, 0.183, 0, 0.1901, 0.2588, 0, 0.094, 0.2588, -0.183, 0.094, 0.183, -0.183, 0.094, 0.183, -0.183, 0.1901, 0.183, 0, 0.1901, 0.2588, 0.2588, 0.094, 0, 0.183, 0.094, 0.183, 0.183, 0.1901, 0.183, 0.183, 0.1901, 0.183, 0.2588, 0.1901, 0, 0.2588, 0.094, 0, 0.183, 0.094, -0.183, 0.2588, 0.094, 0, 0.2588, 0.1901, 0, 0.2588, 0.1901, 0, 0.183, 0.1901, -0.183, 0.183, 0.094, -0.183, -0.2588, 0.094, 0, -0.183, 0.094, -0.183, -0.183, 0.1901, -0.183, -0.183, 0.1901, -0.183, -0.2588, 0.1901, 0, -0.2588, 0.094, 0, -0.183, 0.1901, -0.183, -0.183, 0.094, -0.183, 0, 0.094, -0.2588, 0, 0.094, -0.2588, 0, 0.1901, -0.2588, -0.183, 0.1901, -0.183, 0, 0.1901, -0.2588, 0, 0.094, -0.2588, 0.183, 0.094, -0.183, 0.183, 0.094, -0.183, 0.183, 0.1901, -0.183, 0, 0.1901, -0.2588, 0.2588, 0.2861, 0, 0.183, 0.2861, 0.183, 0.183, 0.3821, 0.183, 0.183, 0.3821, 0.183, 0.2588, 0.3821, 0, 0.2588, 0.2861, 0, 0.183, 0.2861, -0.183, 0.2588, 0.2861, 0, 0.2588, 0.3821, 0, 0.2588, 0.3821, 0, 0.183, 0.3821, -0.183, 0.183, 0.2861, -0.183, 0.183, 0.3821, -0.183, 0.2588, 0.3821, 0, 0.183, 0.3821, 0.183, 0.183, 0.3821, 0.183, 0, 0.3821, -0.2588, 0.183, 0.3821, -0.183, 0.183, 0.3821, 0.183, 0, 0.3821, 0.2588, 0, 0.3821, -0.2588, 0, 0.3821, 0.2588, -0.183, 0.3821, -0.183, 0, 0.3821, -0.2588, 0, 0.3821, 0.2588, -0.183, 0.3821, 0.183, -0.183, 0.3821, -0.183, -0.183, 0.3821, 0.183, -0.2588, 0.3821, 0, -0.183, 0.3821, -0.183, 0.183, 0.2861, 0.183, 0.2588, 0.2861, 0, 0.183, 0.2861, -0.183, 0.183, 0.2861, -0.183, 0, 0.2861, 0.2588, 0.183, 0.2861, 0.183, 0.183, 0.2861, -0.183, 0, 0.2861, -0.2588, 0, 0.2861, 0.2588, 0, 0.2861, -0.2588, -0.183, 0.2861, 0.183, 0, 0.2861, 0.2588, 0, 0.2861, -0.2588, -0.183, 0.2861, -0.183, -0.183, 0.2861, 0.183, -0.183, 0.2861, -0.183, -0.2588, 0.2861, 0, -0.183, 0.2861, 0.183)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_qivq4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewk3i"]
+albedo_color = Color(0.258824, 0.0901961, 0.0901961, 1)
+albedo_texture = ExtResource("48_u4vux")
+albedo_texture_force_srgb = true
+rim_enabled = true
+rim = 0.0
+rim_tint = 0.0
+uv1_scale = Vector3(14.89, 14.89, 14.89)
+uv1_offset = Vector3(0.455, 0.175, 0)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 5.09824
+
 [sub_resource type="Curve3D" id="Curve3D_lbxke"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.64659, 7.93007, 13.0684, 0, 0, 0, 0, 0, 0, 1.67455, 5.92853, 13.0921),
@@ -280,7 +284,7 @@ size = Vector3(0.345549, 0.646057, 5.45221)
 
 [sub_resource type="Curve3D" id="Curve3D_n0irc"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 34.365, 0, 35.9132, 0, 0, 0, 0, 0, 0, 37.3783, 16.8295, 36.0256),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 34.365, 0, 35.9132, 0, 0, 0, 0, 0, 0, 37.378, 16.24, 36.026),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -451,7 +455,35 @@ metallic = 0.4
 
 [sub_resource type="Curve3D" id="Curve3D_k10sj"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -9.401, 0, 0, 0, 0, 0, 0, 0, 6.08486, -9.40108),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -15, -12.474, 0, 0, 0, 0, 0, 0, 0, 5.804, -12.474),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_tg2uv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -15, -22.474, 0, 0, 0, 0, 0, 0, 0, 5.804, -22.474),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_22xmh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -15, -32.474, 0, 0, 0, 0, 0, 0, 0, 5.804, -32.474),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_gcbef"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -15, -42.474, 0, 0, 0, 0, 0, 0, 0, 5.804, -42.474),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_tt2do"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -15, -52.474, 0, 0, 0, 0, 0, 0, 0, 5.804, -52.474),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -474,7 +506,7 @@ camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 transform = Transform3D(2.195, 0, 0, 0, 1, 0, 0, 0, 2.205, 0, 0, 41.8492)
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_hgw2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.20011, 3.53329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235504, 6.23707, 5.35528)
 view = NodePath("../View")
 
 [node name="Character" parent="Player" index="1"]
@@ -517,6 +549,7 @@ fov = 40.0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+visible = false
 shadow_enabled = true
 shadow_opacity = 0.75
 
@@ -663,23 +696,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8668, 8.58094, 28.2327)
 
 [node name="flag" parent="MYWorld" instance=ExtResource("7_dhnka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93464, 0)
-
-[node name="platform-moving" parent="MYWorld" instance=ExtResource("18_4plyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90458, 5.45692, -56.3927)
-
-[node name="moving_object_path" parent="MYWorld" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
-curve = SubResource("Curve3D_wookv")
-object_to_move = NodePath("../platform-moving")
-movement_speed = 2.5
-ping_pong = true
-
-[node name="platform-moving2" parent="MYWorld" instance=ExtResource("18_4plyt")]
-
-[node name="moving_object_path2" parent="MYWorld" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
-curve = SubResource("Curve3D_to20b")
-object_to_move = NodePath("../platform-moving2")
-movement_speed = 2.5
-ping_pong = true
 
 [node name="NormalLevel" type="Node3D" parent="MYWorld"]
 
@@ -1197,6 +1213,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56717, 6.00225, -7.14489)
 [node name="flowers-tall3" parent="MYWorld/NormalLevel/House" instance=ExtResource("39_okiub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44287, 6.00225, -7.14489)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MYWorld/NormalLevel/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.48602, 4, 6.01414, 0.895189)
+mesh = SubResource("PlaneMesh_qivq4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ewk3i")
+
 [node name="Moving Platforms" type="Node3D" parent="MYWorld/NormalLevel"]
 
 [node name="moving_object_path" parent="MYWorld/NormalLevel/Moving Platforms" node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
@@ -1627,25 +1648,67 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97477, 6.00228, 12.0319)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68705, 6.00228, 12.4179)
 
 [node name="plant2" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, 1.85182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, 0.420776)
 
 [node name="plant3" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, 1.85182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, 1.0648)
 
 [node name="plant4" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, 0.82394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, -0.336894)
 
 [node name="plant5" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, -0.15541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89949, 6.01352, -1.02292)
 
 [node name="plant6" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, -0.15541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, -0.998291)
 
 [node name="plant7" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 0.81919)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, -0.27242)
 
 [node name="plant8" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 1.81817)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 0.364966)
+
+[node name="plant9" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 1.02335)
+
+[node name="plant10" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 1.64913)
+
+[node name="plant11" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 2.28652)
+
+[node name="plant12" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56745, 6.01352, 2.9227)
+
+[node name="plant13" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91501, 6.01352, 1.64913)
+
+[node name="plant14" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91501, 6.01352, 2.28652)
+
+[node name="plant15" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91501, 6.01352, 2.9227)
+
+[node name="plant16" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28763, 6.01352, 0.420776)
+
+[node name="plant17" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28763, 6.01352, 1.0648)
+
+[node name="plant18" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28763, 6.01352, -0.336894)
+
+[node name="plant19" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28763, 6.01352, -1.02292)
+
+[node name="plant20" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30314, 6.01352, 1.64913)
+
+[node name="plant21" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30314, 6.01352, 2.28652)
+
+[node name="plant22" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("24_faq7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30314, 6.01352, 2.9227)
 
 [node name="tree2" parent="MYWorld/NormalLevel/Decorations" instance=ExtResource("45_oxsru")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03223, 6.01352, -3.56643)
@@ -3217,7 +3280,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.81485, -50.1982)
 transform = Transform3D(28, 0, 0, 0, 15, 0, 0, 0, 20, 2.02823, -13.7687, -31.3112)
 
 [node name="block-grass-corner2" parent="MYWorld/MysteryIsland" instance=ExtResource("29_15rum")]
-transform = Transform3D(-3.28559, 0, 2.28142, 0, 3, 0, -2.28142, 0, -3.28559, 0.634463, -1.77, -10.7134)
+transform = Transform3D(-4.59978, 0, 3.64265, 0, 3, 0, -3.19395, 0, -5.24597, 0.0565225, -1.77, -10.3288)
 
 [node name="Mountain bottom" type="Node3D" parent="MYWorld/MysteryIsland"]
 
@@ -6840,20 +6903,92 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2xxos")
 transform = Transform3D(-1.66667, -1.88214e-22, 3.64262e-08, -4.37114e-07, -2.18557e-07, -1.25, 6.36895e-15, -1.66667, 1.82131e-08, 0.00831014, 0.484552, -0.701225)
 
 [node name="button" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_sw6td")]
-transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 3, 0.0979378, 5.78632, -6.63749)
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 2.37, 0.0979378, 5.78632, -6.25937)
 visible = false
 target = NodePath("../moving_object_path")
 
-[node name="Boat" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.71994, -8.87359)
-
-[node name="platform-moving" parent="Boat" instance=ExtResource("18_4plyt")]
-
 [node name="moving_object_path" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
 curve = SubResource("Curve3D_k10sj")
-object_to_move = NodePath("../Boat")
+object_to_move = NodePath("../StoneBridge")
+movement_speed = 15.0
 is_on_from_start = false
 do_once = true
+
+[node name="moving_object_path2" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_tg2uv")
+object_to_move = NodePath("../StoneBridge2")
+movement_speed = 15.0
+is_on_from_start = false
+do_once = true
+
+[node name="moving_object_path3" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_22xmh")
+object_to_move = NodePath("../StoneBridge3")
+movement_speed = 15.0
+is_on_from_start = false
+do_once = true
+
+[node name="moving_object_path4" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_gcbef")
+object_to_move = NodePath("../StoneBridge4")
+movement_speed = 15.0
+is_on_from_start = false
+do_once = true
+
+[node name="moving_object_path5" parent="." node_paths=PackedStringArray("object_to_move") instance=ExtResource("19_ndcod")]
+curve = SubResource("Curve3D_tt2do")
+object_to_move = NodePath("../StoneBridge5")
+movement_speed = 15.0
+is_on_from_start = false
+do_once = true
+
+[node name="StoneBridge" parent="." instance=ExtResource("84_3t4ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.804, -12.4814)
+
+[node name="button" parent="StoneBridge" index="2" node_paths=PackedStringArray("target")]
+target = NodePath("../../moving_object_path2")
+
+[node name="stones2" parent="StoneBridge" instance=ExtResource("85_kobir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231236, 0)
+
+[node name="StoneBridge2" parent="." instance=ExtResource("84_3t4ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359968, 5.80421, -22.4751)
+
+[node name="button" parent="StoneBridge2" index="2" node_paths=PackedStringArray("target")]
+target = NodePath("../../moving_object_path3")
+
+[node name="stones2" parent="StoneBridge2" instance=ExtResource("85_kobir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.216242, 0)
+
+[node name="StoneBridge3" parent="." instance=ExtResource("84_3t4ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359968, 5.80421, -32.4751)
+
+[node name="button" parent="StoneBridge3" index="2" node_paths=PackedStringArray("target")]
+target = NodePath("../../moving_object_path4")
+
+[node name="StoneBridge4" parent="." instance=ExtResource("84_3t4ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359968, 5.80421, -42.4751)
+
+[node name="button" parent="StoneBridge4" index="2" node_paths=PackedStringArray("target")]
+target = NodePath("../../moving_object_path5")
+
+[node name="StoneBridge5" parent="." instance=ExtResource("84_3t4ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359968, 5.80421, -52.4751)
+
+[node name="fence-broken2" parent="." instance=ExtResource("86_lbke5")]
+transform = Transform3D(0.34122, -1.90397, 0.508383, 0.128875, 0.536402, 1.92241, -1.96646, -0.295223, 0.214203, -7.9941, 15.8742, 4.60354)
+
+[node name="fence-broken2" parent="fence-broken2" instance=ExtResource("86_lbke5")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -3.16585e-08, 0.0412286, -5.82867e-16)
+
+[node name="arrow2" parent="." instance=ExtResource("56_vq5sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2193, 16.9844, 3.96535)
+
+[node name="fence-straight2" parent="." instance=ExtResource("28_l3ihb")]
+transform = Transform3D(1.45906, 0.213482, -0.274899, -0.224384, 1.48259, -0.0395851, 0.266076, 0.0796266, 1.47406, -7.95346, 16.732, 4.85687)
+
+[node name="fence-straight3" parent="." instance=ExtResource("28_l3ihb")]
+transform = Transform3D(-1.43262, 0.315198, 0.31343, 0.329246, 1.46303, 0.033631, -0.298638, 0.100917, -1.4665, -7.97677, 16.8109, 4.45153)
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
@@ -6976,3 +7111,7 @@ do_once = true
 [editable path="Lighthouse/Armature/weapon-shield2"]
 [editable path="Lighthouse/Armature/shape-hollow-cylinder-detailed7"]
 [editable path="door/block-grass-low3"]
+[editable path="StoneBridge"]
+[editable path="StoneBridge2"]
+[editable path="StoneBridge3"]
+[editable path="StoneBridge4"]

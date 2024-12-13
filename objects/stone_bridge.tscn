@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddrnowfyucm6d"]
+
+[ext_resource type="PackedScene" uid="uid://ddyao5skytgvu" path="res://models/prototyping/models/floor-thick.glb" id="1_xxr7u"]
+[ext_resource type="PackedScene" uid="uid://cabon4dlf7od5" path="res://objects/column_2.tscn" id="2_klo2c"]
+[ext_resource type="PackedScene" uid="uid://g73m8k0j7lyo" path="res://objects/button.tscn" id="3_fop6j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4cj35"]
+size = Vector3(2.0047, 0.199338, 10.0025)
+
+[node name="StoneBridge" type="Node3D"]
+
+[node name="floor-thick2" parent="." instance=ExtResource("1_xxr7u")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="floor-thick2"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor-thick2/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015564, 0.101171, 0.00650015)
+shape = SubResource("BoxShape3D_4cj35")
+
+[node name="Rails" type="Node3D" parent="."]
+
+[node name="column44" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
+
+[node name="column45" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5)
+
+[node name="column46" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 4.09865)
+
+[node name="column47" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, 4.09865)
+
+[node name="column48" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="column49" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
+
+[node name="column50" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 3.09865)
+
+[node name="column51" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, 3.09865)
+
+[node name="column52" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="column53" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="column54" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 2.09865)
+
+[node name="column55" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, 2.09865)
+
+[node name="column56" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="column57" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="column58" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 1.09865)
+
+[node name="column59" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, 1.09865)
+
+[node name="column60" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="column61" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="column62" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0.0986543)
+
+[node name="column63" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, 0.0986543)
+
+[node name="column64" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="column65" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="column66" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, -0.901346)
+
+[node name="column67" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, -0.901346)
+
+[node name="column68" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="column69" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="column70" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, -1.90135)
+
+[node name="column71" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, -1.90135)
+
+[node name="column72" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="column73" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="column74" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, -2.90135)
+
+[node name="column75" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, -2.90135)
+
+[node name="column76" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="column77" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+
+[node name="column78" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, -3.90135)
+
+[node name="column79" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 1, -3.90135)
+
+[node name="column80" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="column81" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+
+[node name="column82" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+
+[node name="column83" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
+
+[node name="column84" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -5.24537e-08, -1, 0, 1.2, -4.37114e-08, 1, 1, -5.10214)
+
+[node name="column85" parent="Rails" instance=ExtResource("2_klo2c")]
+transform = Transform3D(1, 0, 0, 0, -5.24537e-08, -1, 0, 1.2, -4.37114e-08, -1, 1, -5.10214)
+
+[node name="button" parent="." instance=ExtResource("3_fop6j")]
+transform = Transform3D(3.5, 0, 0, 0, 2, 0, 0, 0, 10, 0.072306, -0.238359, 0.0914657)
+visible = false

@@ -7,8 +7,9 @@ size = Vector3(0.200668, 1, 0.20343)
 
 [node name="column2" instance=ExtResource("1_8kik8")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="column" index="0"]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="column" index="0"]
+sync_to_physics = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="column/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="column/AnimatableBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000881672, 0.499632, -0.000363469)
 shape = SubResource("BoxShape3D_fkwo2")
