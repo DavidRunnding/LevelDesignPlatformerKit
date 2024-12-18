@@ -79,6 +79,7 @@ void fragment() {
 
 	// Blend normal maps into one
 	vec3 normal_blend = mix(texture(texture_normal,world_pos.xz+time).rgb, texture(texture_normal2,world_pos.xz+time2).rgb, 0.5);
+	
 	// calculate Fresnel
 	float fresnel = fresnel(5.0, NORMAL, VIEW);
 	vec3 surface_color = mix(albedo, albedo2, fresnel); // interpolate albedo values by fresnel

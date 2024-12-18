@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkl0ykntfrkrs"]
+
+[ext_resource type="PackedScene" uid="uid://d16ldw73ada7w" path="res://models/prototyping/models/weapon-shield.glb" id="1_gn78f"]
+[ext_resource type="PackedScene" uid="uid://rwa218730lgk" path="res://models/prototyping/models/indicator-round-c.glb" id="2_bfvgx"]
+[ext_resource type="PackedScene" uid="uid://dlj32wfhv5wlb" path="res://models/prototyping/models/pipe-corner.glb" id="3_2cetj"]
+[ext_resource type="PackedScene" uid="uid://114t5yss0qt" path="res://models/prototyping/models/pipe-half.glb" id="4_e4y1c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksqcs"]
+albedo_color = Color(0.0978599, 0.526319, 0.854265, 1)
+metallic = 0.98
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thghc"]
+albedo_color = Color(0.415686, 0.407843, 0.4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0re2g"]
+albedo_color = Color(0.415686, 0.407843, 0.4, 1)
+
+[node name="HouseLamp" type="Node3D"]
+
+[node name="weapon-shield2" parent="." instance=ExtResource("1_gn78f")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.00993347, 1.99812, 0.00608444)
+
+[node name="weapon-shield" parent="weapon-shield2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ksqcs")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00993347, 2.36912, 0.00608444)
+light_color = Color(1, 1, 0.513726, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 13.444
+light_size = 0.465
+light_specular = 5.818
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_opacity = 0.47
+
+[node name="indicator-round-c2" parent="." instance=ExtResource("2_bfvgx")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00069809, 1.84721, 0.00227737)
+
+[node name="pipe-half2" parent="." instance=ExtResource("4_e4y1c")]
+transform = Transform3D(1, 0, 0, 0, -2.00635e-08, 1, 0, -0.459, -4.37114e-08, 0.0521506, 1.58719, 0.637479)
+visible = false
+
+[node name="pipe-half" parent="pipe-half2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_thghc")
+
+[node name="pipe-corner2" parent="." instance=ExtResource("3_2cetj")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.152, 1.5, 0.422)
+
+[node name="pipe-corner" parent="pipe-corner2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0re2g")
+
+[editable path="weapon-shield2"]
+[editable path="pipe-half2"]
+[editable path="pipe-corner2"]

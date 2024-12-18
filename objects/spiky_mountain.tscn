@@ -1,0 +1,645 @@
+[gd_scene load_steps=7 format=3 uid="uid://b34olalfs23l4"]
+
+[ext_resource type="PackedScene" uid="uid://73nktay1f7dh" path="res://models/props/jewel.glb" id="1_qx7jy"]
+[ext_resource type="Texture2D" uid="uid://cgih8ceogtv0b" path="res://models/props/Textures/Mycolour.png" id="2_sci77"]
+[ext_resource type="PackedScene" uid="uid://bunxb353h3lje" path="res://objects/damage_dealer_area_3d.tscn" id="3_x5cy8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4maw"]
+albedo_texture = ExtResource("2_sci77")
+uv1_offset = Vector3(0, 1.225, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4bkyb"]
+data = PackedVector3Array(0.0832, 0.1852, 0.1441, 0.1664, 0.1852, 0, 0, 0, 0, -0.0832, 0.1852, 0.1441, 0.0832, 0.1852, 0.1441, 0, 0, 0, 0.0832, 0.1852, 0.1441, 0, 0.3705, 0, 0.1664, 0.1852, 0, 0, 0.3705, 0, -0.0832, 0.1852, -0.1441, 0.0832, 0.1852, -0.1441, 0, 0, 0, 0.1664, 0.1852, 0, 0.0832, 0.1852, -0.1441, 0.0832, 0.1852, -0.1441, -0.0832, 0.1852, -0.1441, 0, 0, 0, 0, 0.3705, 0, -0.1664, 0.1852, 0, -0.0832, 0.1852, -0.1441, -0.0832, 0.1852, 0.1441, 0, 0, 0, -0.1664, 0.1852, 0, 0, 0.3705, 0, 0.0832, 0.1852, 0.1441, -0.0832, 0.1852, 0.1441, -0.0832, 0.1852, 0.1441, -0.1664, 0.1852, 0, 0, 0.3705, 0, -0.1664, 0.1852, 0, 0, 0, 0, -0.0832, 0.1852, -0.1441, 0.1664, 0.1852, 0, 0, 0.3705, 0, 0.0832, 0.1852, -0.1441)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8317m"]
+size = Vector3(0.0374041, 0.111206, 0.0472107)
+
+[node name="Spiky_Mountain" type="Node3D"]
+
+[node name="jewel6" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(4.39088, -2.3917, 0, 2.3917, 4.39088, 0, 0, 0, 5, 0.0143864, 0, -0.03505)
+
+[node name="jewel" parent="jewel6" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel6/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel6/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel6/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel6/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel5" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(5, 0, 0, 0, 3.73395, 3.3253, 0, -3.3253, 3.73395, 0, 0, 0)
+
+[node name="jewel" parent="jewel5" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel5/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel5/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel5/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel5/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel4" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(5, 0, 0, 0, 4.00496, -2.99337, 0, 2.99337, 4.00496, 0, 0, 0)
+
+[node name="jewel" parent="jewel4" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel4/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel4/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel4/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel4/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel3" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(4.4149, 2.34705, 0, -2.34705, 4.4149, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="jewel" parent="jewel3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel3/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel3/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel3/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel3/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel2" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="jewel" parent="jewel2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel2/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel2/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel2/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel2/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel7" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(1.34626, 3.69763, 0, -1.47905, 3.36564, 0, 0, 0, 2, 0.0897688, 0, 0)
+
+[node name="jewel" parent="jewel7" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel7/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel7/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel7/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel7/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel13" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(1.636, 2.8761, 0, -1.15044, 4.09, 0, 0, 0, 2, 0.00275875, -0.123734, 0)
+
+[node name="jewel" parent="jewel13" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel13/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel13/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel13/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel13/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel14" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(1.636, 2.70803, -0.387505, -1.15044, 3.851, -0.551057, 0, 1.68416, 1.88313, 0.0598514, -0.0797665, -0.192337)
+
+[node name="jewel" parent="jewel14" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel14/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel14/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel14/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel14/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel12" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(1.33012, 3.65332, 0.308697, -1.47905, 3.36564, 0, -0.207792, -0.570722, 1.97603, -0.236311, 0.474085, 0)
+
+[node name="jewel" parent="jewel12" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel12/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel12/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel12/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel12/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel10" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(1.1642, 3.19758, -1.00435, -1.47905, 3.36564, 0, 0.676057, 1.85686, 1.72953, -0.234323, 0.180227, -0.188202)
+
+[node name="jewel" parent="jewel10" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel10/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel10/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel10/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel10/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel11" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(1.11949, 3.07479, 1.11088, -1.47905, 3.36564, -4.15992e-09, -0.747765, -2.05381, 1.66311, -0.234323, 0.180227, 0.0244775)
+
+[node name="jewel" parent="jewel11" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel11/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel11/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel11/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel11/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel23" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.803916, 2.20803, 1.60426, -1.47905, 3.36564, -8.31985e-09, -1.07987, -2.96598, 1.1943, -0.365647, -0.0199469, -0.229904)
+
+[node name="jewel" parent="jewel23" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel23/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel23/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel23/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel23/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel24" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.914185, 2.5109, 1.46817, -1.47905, 3.36564, 6.67638e-08, -0.988268, -2.71437, 1.35811, -0.169013, -0.0199469, -0.0835193)
+
+[node name="jewel" parent="jewel24" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel24/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel24/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel24/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel24/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel8" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.783821, 2.15284, -1.62606, -1.47905, 3.36564, 0, 1.09455, 3.00628, 1.16444, 0.00729284, 0.219438, -0.115171)
+
+[node name="jewel" parent="jewel8" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel8/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel8/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel8/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel8/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel9" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.783821, 2.15284, -1.62606, -1.47905, 3.36564, 0, 1.09455, 3.00628, 1.16444, -0.418516, 0.219438, -0.115171)
+
+[node name="jewel" parent="jewel9" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel9/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel9/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel9/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel9/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel15" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.783821, 2.15284, -1.62606, -1.47905, 3.36564, 0, 1.09455, 3.00628, 1.16444, -0.452877, 0.58181, -0.496254)
+
+[node name="jewel" parent="jewel15" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel15/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel15/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel15/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel15/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel31" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-0.312792, -0.859115, -1.94527, -1.47905, 3.36564, -8.31635e-08, 1.30942, 3.59644, -0.464684, -0.117137, -0.0986555, -0.0274184)
+
+[node name="jewel" parent="jewel31" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel31/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel31/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel31/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel31/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel32" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.0744932, 0.204602, -1.99694, -1.47905, 3.36564, -6.48733e-08, 1.34419, 3.69196, 0.110667, -0.0657649, -0.0986555, -0.0274184)
+
+[node name="jewel" parent="jewel32" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel32/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel32/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel32/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel32/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel33" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.851729, 2.33936, -1.54885, -1.47905, 3.36564, -6.65138e-08, 1.04258, 2.86354, 1.26533, -0.197434, 0.0713689, 0.390168)
+
+[node name="jewel" parent="jewel33" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel33/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel33/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel33/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel33/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel34" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.851729, 2.33936, -1.54885, -1.47905, 3.36564, -6.65138e-08, 1.04258, 2.86354, 1.26533, -0.197434, 0.0713689, 0.390168)
+
+[node name="jewel" parent="jewel34" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel34/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel34/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel34/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel34/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel16" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.783821, -0.12258, -1.83935, -1.47905, 2.93127, -0.661538, 1.09455, 4.04878, 0.423258, -0.442911, 0.343482, -0.825441)
+
+[node name="jewel" parent="jewel16" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel16/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel16/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel16/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel16/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel22" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.783821, -0.12258, -1.83935, -1.47905, 2.93127, -0.661538, 1.09455, 4.04878, 0.423258, -0.442911, 0.503691, -0.933292)
+
+[node name="jewel" parent="jewel22" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel22/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel22/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel22/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel22/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel25" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.11314, 2.13333, -1.42574, 1.25462, 3.89202, -0.0477563, 1.08943, -2.30241, -1.40177, -0.442911, 0.261325, -0.27545)
+
+[node name="jewel" parent="jewel25" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel25/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel25/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel25/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel25/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel26" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.11314, 2.13333, -1.42574, 1.25462, 3.89202, -0.0477563, 1.08943, -2.30241, -1.40177, -0.400658, 0.33841, 0.474933)
+
+[node name="jewel" parent="jewel26" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel26/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel26/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel26/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel26/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel27" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.11314, -0.0678385, -1.66138, 1.25462, 3.24349, -0.861794, 1.08943, -3.80462, -0.705069, -0.282552, 0.532436, 0.638236)
+
+[node name="jewel" parent="jewel27" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel27/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel27/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel27/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel27/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel28" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.11314, -0.0678385, -1.66138, 1.25462, 3.24349, -0.861794, 1.08943, -3.80462, -0.705069, -0.557889, -0.0382345, 0.57426)
+
+[node name="jewel" parent="jewel28" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel28/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel28/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel28/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel28/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel29" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.11314, -0.0678385, -1.66138, 1.25462, 3.24349, -0.861794, 1.08943, -3.80462, -0.705069, -0.30826, -0.0370225, 0.197647)
+
+[node name="jewel" parent="jewel29" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel29/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel29/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel29/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel29/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel30" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.11314, -0.0678385, -1.66138, 1.25462, 3.24349, -0.861794, 1.08943, -3.80462, -0.705069, -0.30826, 0.292168, 0.197647)
+
+[node name="jewel" parent="jewel30" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel30/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel30/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel30/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel30/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel17" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(0.783821, -0.12258, -1.83935, -1.47905, 2.93127, -0.661538, 1.09455, 4.04878, 0.423258, -0.158876, 0.444535, -0.469346)
+
+[node name="jewel" parent="jewel17" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel17/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel17/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel17/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel17/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel18" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-0.0996988, -2.6887, -1.68327, -1.47905, 2.93127, -0.661538, 1.34256, 3.02961, -0.853792, -0.158876, 0.220258, -0.469346)
+
+[node name="jewel" parent="jewel18" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel18/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel18/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel18/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel18/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel19" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.32533, -3.60189, 0.409546, -1.47905, 2.93127, -0.661538, 0.236459, -1.85312, -1.84245, -0.158876, 0.220258, 0.163331)
+
+[node name="jewel" parent="jewel19" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel19/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel19/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel19/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel19/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel20" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.02225, -4.0441, -0.581581, -1.47905, 2.93127, -0.661538, 0.87602, 0.229914, -1.79559, 0.279258, 0.138848, 0.138422)
+
+[node name="jewel" parent="jewel20" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel20/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel20/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel20/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel20/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[node name="jewel21" parent="." instance=ExtResource("1_qx7jy")]
+transform = Transform3D(-1.16808, -4.01572, -0.235409, -1.47905, 2.93127, -0.661538, 0.66932, -0.530687, -1.87268, 0.279258, 0.437002, 0.138422)
+
+[node name="jewel" parent="jewel21" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4maw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jewel21/jewel" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jewel21/jewel/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4bkyb")
+
+[node name="DamageDealerArea3D" parent="jewel21/jewel/StaticBody3D" instance=ExtResource("3_x5cy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3902e-05, 0.315142, 2.11596e-07)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="jewel21/jewel/StaticBody3D/DamageDealerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -0.001)
+shape = SubResource("BoxShape3D_8317m")
+
+[editable path="jewel6"]
+[editable path="jewel5"]
+[editable path="jewel4"]
+[editable path="jewel3"]
+[editable path="jewel2"]
+[editable path="jewel7"]
+[editable path="jewel13"]
+[editable path="jewel14"]
+[editable path="jewel12"]
+[editable path="jewel10"]
+[editable path="jewel11"]
+[editable path="jewel23"]
+[editable path="jewel24"]
+[editable path="jewel8"]
+[editable path="jewel9"]
+[editable path="jewel15"]
+[editable path="jewel31"]
+[editable path="jewel32"]
+[editable path="jewel33"]
+[editable path="jewel34"]
+[editable path="jewel16"]
+[editable path="jewel22"]
+[editable path="jewel25"]
+[editable path="jewel26"]
+[editable path="jewel27"]
+[editable path="jewel28"]
+[editable path="jewel29"]
+[editable path="jewel30"]
+[editable path="jewel17"]
+[editable path="jewel18"]
+[editable path="jewel19"]
+[editable path="jewel20"]
+[editable path="jewel21"]
