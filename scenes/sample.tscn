@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=4 uid="uid://e6jwbml72r4o"]
+[gd_scene load_steps=164 format=4 uid="uid://e6jwbml72r4o"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_apxki"]
 [ext_resource type="AudioStream" uid="uid://1j73f5g6kinm" path="res://sounds/Waves.wav" id="2_6bith"]
@@ -81,8 +81,6 @@
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="70_o33ur"]
 [ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="71_ft27i"]
 [ext_resource type="PackedScene" uid="uid://b3h8utr4fh2m7" path="res://models/prototyping/models/indicator-round-d.glb" id="72_mfacs"]
-[ext_resource type="PackedScene" uid="uid://ihldridb4p6r" path="res://scenes/water_map.tscn" id="74_hnsgl"]
-[ext_resource type="PackedScene" uid="uid://b8xk2pn1mxf7c" path="res://objects/NEWWater_Map.tscn" id="75_fjw7f"]
 [ext_resource type="PackedScene" uid="uid://be663rsk85hsv" path="res://objects/fire_flies.tscn" id="78_ihred"]
 [ext_resource type="PackedScene" uid="uid://73nktay1f7dh" path="res://models/props/jewel.glb" id="81_yrp2b"]
 [ext_resource type="PackedScene" uid="uid://dmg3eddclu4p3" path="res://models/props/trap-spikes.glb" id="82_gl83a"]
@@ -510,18 +508,6 @@ camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 [node name="Water" parent="." instance=ExtResource("2_y6qim")]
 transform = Transform3D(2.195, 0, 0, 0, 1, 0, 0, 0, 2.205, -0.0378952, -0.0668974, 41.8292)
 
-[node name="WaterMap" parent="." instance=ExtResource("74_hnsgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58038, 5.00109, -4.16952)
-visible = false
-
-[node name="MeshInstance3D" parent="WaterMap" index="0"]
-layers = 8
-
-[node name="MeshInstance3D" parent="." instance=ExtResource("75_fjw7f")]
-transform = Transform3D(500, 0, 0, 0, 15, 0, 0, 0, 500, -6.64775, 3.54858, -2.84022)
-visible = false
-skeleton = NodePath("../MYWorld/MountainLevel")
-
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_hgw2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235504, 6.23707, 5.35528)
 view = NodePath("../View")
@@ -529,14 +515,29 @@ view = NodePath("../View")
 [node name="Character" parent="Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.091742, 0.159299)
 
+[node name="leg-left" parent="Player/Character/character/root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.872931, 0.487844, 0, -0.487844, 0.872931, 0.125, 0.239, 0.077)
+
+[node name="leg-right" parent="Player/Character/character/root" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.837576, -0.546321, 0, 0.546321, 0.837576, -0.125, 0.229, -0.193)
+
+[node name="torso" parent="Player/Character/character/root" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.996194, 0.0871557, 0, -0.0871557, 0.996194, -1.80478e-15, 0.17625, -0.02375)
+
+[node name="arm-left" parent="Player/Character/character/root/torso" index="0"]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0.3, 0.175, 0)
+
+[node name="arm-right" parent="Player/Character/character/root/torso" index="1"]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -0.3, 0.1195, 0)
+
 [node name="antenna" parent="Player/Character/character/root/torso" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_72s0a")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player/Character/character/root/torso/antenna" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0132865, 0.188349, -6.98492e-10)
 light_color = Color(1, 0.643137, 0.12549, 1)
-light_energy = 8.0
-light_indirect_energy = 0.0
+light_energy = 1.5
+light_volumetric_fog_energy = 8.0
 light_size = 0.879
 light_specular = 9.389
 light_cull_mask = 4294967287
@@ -8442,7 +8443,6 @@ transform = Transform3D(-1.43262, 0.315198, 0.31343, 0.329246, 1.46303, 0.033631
 [connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
 [connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
 
-[editable path="WaterMap"]
 [editable path="Player"]
 [editable path="Player/Character"]
 [editable path="MYWorld/NormalLevel/trees/tree29"]

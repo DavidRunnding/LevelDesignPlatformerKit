@@ -1,0 +1,41 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://x4bapwqslngt"]
+
+[ext_resource type="Shader" path="res://Shaders/new_Water_shader.gdshader" id="1_is0gb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kyt1f"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mvmd7"]
+width = 1024
+height = 1024
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_kyt1f")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4xqcd"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8jrxq"]
+width = 1024
+height = 1024
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_4xqcd")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_is0gb")
+shader_parameter/primary_color = Color(1.55944e-05, 0.670789, 0.882422, 1)
+shader_parameter/secondary_color = Color(2.5028e-06, 0.519951, 0.735106, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/normalmap_a_strength = 0.5
+shader_parameter/normalmap_b_strength = 0.25
+shader_parameter/movement_direction = Vector2(0.2, 0.1)
+shader_parameter/movement_strength = 0.12
+shader_parameter/uv_scale = 1.0
+shader_parameter/depth_distance = 4.0
+shader_parameter/beers_law = 12.0
+shader_parameter/water_transparency = 0.46
+shader_parameter/refraction_strength = 0.5
+shader_parameter/normalmap_a = SubResource("NoiseTexture2D_mvmd7")
+shader_parameter/normalmap_b = SubResource("NoiseTexture2D_8jrxq")

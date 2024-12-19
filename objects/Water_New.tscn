@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctp5bc8x4afpa"]
+
+[ext_resource type="Material" uid="uid://x4bapwqslngt" path="res://Shaders/new_Water_shader.tres" id="1_p3wq1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y7u41"]
+material = ExtResource("1_p3wq1")
+
+[node name="Real_water" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_y7u41")

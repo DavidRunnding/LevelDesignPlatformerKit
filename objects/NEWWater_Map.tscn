@@ -13,6 +13,8 @@ seed = 10
 fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tnnle"]
+width = 1024
+height = 1024
 seamless = true
 as_normal_map = true
 bump_strength = 1.5
@@ -24,6 +26,8 @@ seed = 10
 fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d62m6"]
+width = 1024
+height = 1024
 seamless = true
 as_normal_map = true
 bump_strength = 1.5
@@ -33,8 +37,10 @@ noise = SubResource("FastNoiseLite_ptdqs")
 fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ofgrf"]
+width = 1024
+height = 1024
 seamless = true
-bump_strength = 2.0
+bump_strength = 10.0
 normalize = false
 noise = SubResource("FastNoiseLite_yxqqn")
 
@@ -47,7 +53,7 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.02
 shader_parameter/wave_direction = Vector2(2, 0)
 shader_parameter/wave_direction2 = Vector2(0, 1)
-shader_parameter/time_scale = 0.025
+shader_parameter/time_scale = 0.2
 shader_parameter/noise_scale = 10.0
 shader_parameter/height_scale = 0.15
 shader_parameter/color_deep = Color(0, 0.321569, 0.431373, 1)
@@ -63,7 +69,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_d62m6")
 shader_parameter/wave = SubResource("NoiseTexture2D_ofgrf")
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0516692, 0)
+transform = Transform3D(500, 0, 0, 0, 1, 0, 0, 0, 500, 0, 0, 0)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_14gpt")
 surface_material_override/0 = SubResource("ShaderMaterial_fvm25")
